@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background-color: rgb(245, 242, 228);
+        }
+
+        .website-navigation {
+            background-color: rgb(255, 187, 16);
+            margin-bottom: 50px;
+
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .cell {
+            border: 1px solid #ccc;
+            padding: 10px;
+
+        }
+
+        iframe {
+            width: 200;
+            height: 250px;
+            border: 0;
+        }
+
+        h2 {
+            color: rgba(141, 20, 20, 0.84);
+            font-family: 'Gravitas One', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h3 {
+            color: rgb(119, 8, 8);
+        }
+
+        h5 {
+            color: rgb(119, 8, 8);
+        }
+
+
+
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px 14px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background-color: rgb(255, 187, 16);
+            text-align: left;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="website-navigation">
+        <h1 id="salt-smoke">SALT + SMOKE</h1>
+        <br>
+
+    </div>
+    <h2 id="where">Locations</h2>
+    <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
+    <section class="locations">
+        <div class="map-grid">
+            <div class="cell">
+                <h3 id="delmar-blvd">Delmar Blvd</h3>
+                <iframe title="Salt + Smoke Delmar Blvd Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99701.97192774549!2d-90.37509384179687!3d38.656085399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df3553887b91e5%3A0x87740badb66d919c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450423655!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="cell">
+                <h3 id="clark-ave">Clark Ave</h3>
+                <iframe title="Salt + Smoke Clark Ave Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.43339228399!2d-90.26143454179686!3d38.62341269999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b39bb763996d%3A0xfea2c4bdb41d7532!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450462905!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="cell">
+                <h3 id="hampton-ave">Hampton Ave</h3>
+                <iframe title="Salt + Smoke Hampton Ave Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.23588074159!2d-90.19148540000003!3d38.62355469999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b5f0bc60e8e3%3A0xbade655ec91e82c2!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450492928!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="cell">
+                <h3 id="main-street-st-charles">Main Street – St. Charles</h3>
+                <iframe title="Salt + Smoke Main Street St. Charles Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99532.26156022937!2d-90.55332444179686!3d38.777849400000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df2fbd9c2e4887%3A0x977e788726a869c1!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450528155!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="cell">
+                <h3 id="clarkson-clayton">Clarkson / Clayton</h3>
+                <iframe title="Salt + Smoke Clarkson Clayton Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.932318587101!2d-90.58871119999998!3d38.60442799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8d5d269c3274f%3A0x7dfc9fbb65829e6c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450581311!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+
+            </div>
+            <div class="cell">
+                <h3 id="rusty-rd">Rusty Rd</h3>
+                <iframe title="Salt + Smoke Rusty Rd Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.987299484702!2d-90.3395712!3d38.5110038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8c9548bc3a8f7%3A0x8ddc9f221d6c5a07!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450609421!5m2!1sen!2sus"
+                    width="320" height="200" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <h2 id="when">Hours</h2>
+    <p><strong>We're open seven days a week! Our hours are the same at each location</strong></p>
+    <table class="hours">
+        <tr>
+            <th class="left">Days of the Week</th>
+            <th class="right">Hours of Operation</th>
+        </tr>
+        <tr>
+            <td class="left">Sunday–Thursday</td>
+            <td class="right">11am–9pm</td>
+        </tr>
+        <tr>
+            <td class="left">Friday–Saturday</td>
+            <td class="right">11am–10pm</td>
+        </tr>
+    </table>
+
+
+    <hr>
+    <h2 id="what">Food</h2>
+    <h3 id="salads">Salads</h3>
+    <table class="salad-menu">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Small</th>
+                <th>Medium</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Caesar Salad</td>
+                <td>$8.99</td>
+                <td>$4.99</td>
+                <td>$13.99</td>
+            </tr>
+
+            <tr>
+                <td>Kale Crunch Salad</td>
+                <td>$8.99</td>
+                <td>$4.99</td>
+                <td>$13.99</td>
+            </tr>
+
+            <tr>
+                <td>Mixed Green Salad</td>
+                <td>$8.99</td>
+                <td>$4.99</td>
+                <td>$13.99</td>
+            </tr>
+        </tbody>
+    </table>
+    <h5 id="add-ons">Add-Ons</h4>
+        <table class="salad-add-ons-menu">
+            <thead>
+                <tr>
+                    <th>Add-On</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Brisket</td>
+                    <td>$6.00</td>
+                </tr>
+                <tr>
+                    <td>Cherry Smoked Salmon</td>
+                    <td>$6.00</td>
+                </tr>
+                <tr>
+                    <td>Pulled Pork</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Falafel</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Jalapeño + Cheddar Bologna</td>
+                    <td>$5.00</td>
+                </tr>
+                <tr>
+                    <td>Pulled Chicken</td>
+                    <td>$5.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h3 id="sandwiches">Sandwiches</h3>
+        <table class="sandwiches-menu">
+            <thead>
+                <tr>
+                    <th>Sandwich</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pulled Pork</td>
+                    <td>$14.99</td>
+                </tr>
+                <tr>
+                    <td>Brisket</td>
+                    <td>$16.99</td>
+                </tr>
+                <tr>
+                    <td>Pulled Chicken</td>
+                    <td>$14.99</td>
+                </tr>
+                <tr>
+                    <td>Cherry Smoked Salmon</td>
+                    <td>$14.99</td>
+                </tr>
+                <tr>
+                    <td>Fried Jalapeño + Cheddar Bologna</td>
+                    <td>$13.99</td>
+                </tr>
+                <tr>
+                    <td>BLT</td>
+                    <td>$13.99</td>
+                </tr>
+                <tr>
+                    <td>Grilled Cheese (Brisket/Pulled Chicken)</td>
+                    <td>$16.99/$14.99</td>
+                </tr>
+                <tr>
+                    <td>Falafel Burger</td>
+                    <td>$13.99</td>
+                </tr>
+                <tr>
+                    <td>Oklahoma Bacon Cheeseburger (Single/Double)</td>
+                    <td>$12.99/15.00</td>
+                </tr>
+                <tr>
+                    <td>BLT</td>
+                    <td>$13.99</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="plates">Plates</h3>
+        <p>Pulled Pork - $18.99<br>Brisket - $22.99<br>Pulled Chicken - $18.99<br>Smoked Wings - $20.99<br>St. Louis
+            Ribs -
+            $19.99 / $29.99<br>Fried Jalapeño + Cheddar Bologna - $17.99 </p>
+        <p>Bestie Combo<br>2 Meats - $21.99<br>3 Meats - $25.99<br>4 Meats - $29.99 </p>
+        <hr>
+        <h3 id="sides">Sides</h3>
+        <p>Beef Fat Fries - $5.99<br>Pit Beans - $4.99<br>Sweet Pepper Potato Salad - $3.99<br>Coleslaw - $3.99<br>White
+            Cheddar Cracker Mac - $5.99<br>Green Bean + Tomato Salad - $4.99<br>Creamed Corn - $5.99<br>Brisket Chili -
+            $4.99<br>Special Side - $4.99 </p>
+        <hr>
+        <h3 id="dessert">Dessert</h3>
+        <p>Lemon Gooey Butter Cake - $8.99<br>Dark Chocolate Brownie - $7.99<br>Browned Butter Pecan Bar - $9.99<br>Ice
+            Cream / Sorbet - $5.99<br>À La Mode - $2.99 </p>
+        <hr>
+        <h3 id="fountain-sodas">Fountain Sodas</h3>
+        <p>Excel Bottling Company Beverages - $2.99<br>Iced Tea - $2.99<br>San Pellegrino - $2.99 </p>
+
+</body>
+
+</html>

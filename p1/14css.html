@@ -13,21 +13,31 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #salt-smoke {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
         .board {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 28px 18px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .card {
             background: rgb(250, 248, 240);
             border: 1px solid rgb(160, 160, 160);
-            padding: 16px 16px 14px;
+            padding: 20px;
             border-radius: 6px;
-
         }
 
         .card h2,
@@ -43,13 +53,7 @@
             line-height: 1.5;
         }
 
-        @media (max-width: 900px) {
-            .board {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .board {
                 grid-template-columns: 1fr;
             }
@@ -58,11 +62,10 @@
 </head>
 
 <body>
-    <div class="board">
+    <div class="header">
         <h1 id="salt-smoke">SALT + SMOKE</h1>
-        <br>
-        <br>
-        <br>
+    </div>
+    <div class="board">
         <section class="card" id="Where">
             <h2>Where</h2>
             <a href="https://maps.app.goo.gl/pJxzcKdc8irB6GdLA">6525 Delmar Blvd., St. Louis, MO 63130</a><br>
@@ -73,106 +76,80 @@
                 63011</a><br>
             <a href="https://maps.app.goo.gl/hTSqYcGpafMi4mrq7">4130 Rusty Rd, St. Louis, MO 63128</a><br>
         </section>
-        <br>
-        <br>
         <section class="card" id="when">
             <h2>When</h2>
             <p><b>Sun-Thu: 11am-9pm<br>Fri-Sat: 11am-10pm</b></p>
         </section>
-        <br>
-        <br>
-        <section class="food">
-            <h2>What</h2>
-            <h3 id="appetizers">Appetizers</h3>
-            <hr>
-            <section class="card" id="salads">
-                <h3>Salads</h3>
-                <p><em>Half $8.99 • Side $4.99 • Full $13.99</em></p>
-                <p>Caesar Salad<br>Kale Crunch Salad<br>Mixed Green Salad </p>
-                <p><em>Add Ons</em><br>Brisket or Cherry Smoked Salmon .................. $6.00<br>Pulled Pork
-                    ...................................... $5.00<br>Falafel ..........................................
-                    $5.00<br>Fried Jalapeño + Cheddar Cheese .................. $5.00 </p>
-                <hr>
-            </section>
-            <br>
-            <br>
-            <br>
-            <section class="card" id="sandwiches">
-                <h3>Sandwiches</h3>
-                <p><em>Served with choice of one side • GF/Vegan bun +$2</em></p>
-                <p>Pulled Pork .............................................................
-                    $14.99<br>
-                    Brisket ................................................................. $16.99<br>
-                    Cherry Smoked Salmon ................................... $16.99<br>
-                    BLT............................................................... $13.99<br>
-                    Fried Jalapeño + Cheddar Bolgna............... $13.99 <br>
-                    Grilled Cheese ...................... $16.99 (brisket) / $14.99 (pulled chicken)<br>
-                    Falafel Burger
-                    .........................................................................................
-                    $13.99<br>
-                    Oklahoma Bacon Cheeseburger .............................. $12.99 (single) / $15.99 (double)<br>
-                    Chicken Caesar Wrap
-                    ..................................................................................... $13.99 </p>
-            </section>
-            <br>
-            <br>
-            <br>
-            <section class="card" id="plates">
-                <h3>Plates</h3>
-                <p><em>Bacon &amp; cheddar popover + two sides</em></p>
-                <p>Pulled Pork ...................................... $18.99<br>Brisket
-                    ..........................................
-                    $22.99<br>Pulled Chicken ................................... $18.99<br>Smoked Wings
-                    ..................................... $20.99<br>St. Louis Cut Ribs ...............................
-                    $19.99
-                    (½) /
-                    $29.99 (full)<br>Fried Jalapeño + Cheddar Bologna ................. $17.99 </p>
-                <p><em>Bestie Combo</em><br>2 Meats .......................................... $21.99<br>3 Meats
-                    .......................................... $25.99<br>4 Meats
-                    ..........................................
-                    $29.99
-                </p>
-            </section>
-            <br>
-            <br>
-            <br>
-            <section class="card" id="sides">
-                <h3>Sides</h3>
-                <p>Beef Fat Fries ................................... $5.99<br>Pit Beans w/ Smoked Bacon
-                    .........................
-                    $4.99<br>Sweet Pepper Potato Salad ......................... $3.99<br>Coleslaw
-                    .......................................... $3.99<br>White Cheddar Cracker Mac
-                    .........................
-                    $5.99<br>Green Bean + Tomato Salad ......................... $4.99<br>Creamed Corn
-                    ...................................... $5.99<br>Brisket Chili .....................................
-                    $4.99<br>Special Side ...................................... $4.99 </p>
-            </section>
-            <br>
-            <br>
-            <br>
-            <section class="card" id="dessert">
-                <h3>Dessert</h3>
-                <p>Lemon Gooey Butter Cake .........................
-                    $8.99<br>Dark Chocolate Brownie
-                    .........................
-                    $7.99<br>Browned Butter Pecan Bar
-                    .........................
-                    $9.99<br>Ice Cream + Sorbet ......................... $5.99 (3 Scoops) /$2.99 (à la mode)
-                </p>
-            </section>
-            <br>
-            <br>
-            <br>
-            <section class="card" id="sodas">
-                <h3>Fountain Sodas</h3>
-                <p>Excel Bottling Company Beverages .................. $2.99<br>Iced Tea
-                    (Sweet/Unsweet)
-                    .......................... $2.99<br>Sam Pellegrino
-                    ....................................................... $2.99</p>
-            </section>
-            <br>
-            <br>
 
+        <section class="card" id="salads">
+            <h3>Salads</h3>
+            <p><em>Half $8.99 • Side $4.99 • Full $13.99</em></p>
+            <p>Caesar Salad<br>Kale Crunch Salad<br>Mixed Green Salad </p>
+            <p><em>Add Ons</em><br>Brisket or Cherry Smoked Salmon .................. $6.00<br>Pulled Pork
+                ...................................... $5.00<br>Falafel ..........................................
+                $5.00<br>Fried Jalapeño + Cheddar Cheese .................. $5.00 </p>
+        </section>
+        <section class="card" id="sandwiches">
+            <h3>Sandwiches</h3>
+            <p><em>Served with choice of one side • GF/Vegan bun +$2</em></p>
+            <p>Pulled Pork .............................................................
+                $14.99<br>
+                Brisket ................................................................. $16.99<br>
+                Cherry Smoked Salmon ................................... $16.99<br>
+                BLT............................................................... $13.99<br>
+                Fried Jalapeño + Cheddar Bolgna............... $13.99 <br>
+                Grilled Cheese ...................... $16.99 (brisket) / $14.99 (pulled chicken)<br>
+                Falafel Burger
+                .........................................................................................
+                $13.99<br>
+                Oklahoma Bacon Cheeseburger .............................. $12.99 (single) / $15.99 (double)<br>
+                Chicken Caesar Wrap
+                ..................................................................................... $13.99 </p>
+        </section>
+        <section class="card" id="plates">
+            <h3>Plates</h3>
+            <p><em>Bacon &amp; cheddar popover + two sides</em></p>
+            <p>Pulled Pork ...................................... $18.99<br>Brisket
+                ..........................................
+                $22.99<br>Pulled Chicken ................................... $18.99<br>Smoked Wings
+                ..................................... $20.99<br>St. Louis Cut Ribs ...............................
+                $19.99
+                (½) /
+                $29.99 (full)<br>Fried Jalapeño + Cheddar Bologna ................. $17.99 </p>
+            <p><em>Bestie Combo</em><br>2 Meats .......................................... $21.99<br>3 Meats
+                .......................................... $25.99<br>4 Meats
+                ..........................................
+                $29.99
+            </p>
+        </section>
+        <section class="card" id="sides">
+            <h3>Sides</h3>
+            <p>Beef Fat Fries ................................... $5.99<br>Pit Beans w/ Smoked Bacon
+                .........................
+                $4.99<br>Sweet Pepper Potato Salad ......................... $3.99<br>Coleslaw
+                .......................................... $3.99<br>White Cheddar Cracker Mac
+                .........................
+                $5.99<br>Green Bean + Tomato Salad ......................... $4.99<br>Creamed Corn
+                ...................................... $5.99<br>Brisket Chili .....................................
+                $4.99<br>Special Side ...................................... $4.99 </p>
+        </section>
+        <section class="card" id="dessert">
+            <h3>Dessert</h3>
+            <p>Lemon Gooey Butter Cake .........................
+                $8.99<br>Dark Chocolate Brownie
+                .........................
+                $7.99<br>Browned Butter Pecan Bar
+                .........................
+                $9.99<br>Ice Cream + Sorbet ......................... $5.99 (3 Scoops) /$2.99 (à la mode)
+            </p>
+        </section>
+        <section class="card" id="sodas">
+            <h3>Fountain Sodas</h3>
+            <p>Excel Bottling Company Beverages .................. $2.99<br>Iced Tea
+                (Sweet/Unsweet)
+                .......................... $2.99<br>Sam Pellegrino
+                ....................................................... $2.99</p>
+        </section>
         </section>
     </div>
 </body>

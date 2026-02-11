@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(25, 40, 30);
+        }
+
+        h1 {
+            font-family: 'Palatino', 'Book Antiqua', serif;
+            display: block;
+            border-style: solid;
+            border-color: rgb(180, 200, 150);
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+            color: rgb(240, 235, 220);
+            letter-spacing: 3px;
+        }
+
+        h2 {
+            font-family: 'Palatino', 'Book Antiqua', serif;
+            color: rgb(180, 200, 150);
+        }
+
+        h3 {
+            color: rgb(200, 210, 180);
+        }
+
+        a {
+            color: rgb(200, 210, 180);
+            font-family: 'Georgia', serif;
+        }
+
+        a:hover {
+            color: rgb(220, 230, 200);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: rgb(180, 200, 150);
+            margin: 20px 0;
+        }
+
+        .locations,
+        .hours,
+        .food {
+            text-align: center;
+            border-style: solid;
+            border-radius: 15px;
+            border-color: rgb(180, 200, 150);
+            background-color: rgb(35, 50, 40);
+            color: rgb(240, 235, 220);
+            margin: 20px;
+            padding: 25px;
+        }
+
+        p {
+            color: rgb(240, 235, 220);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .locations,
+            .hours,
+            .food {
+                padding: 15px;
+                border-radius: 15px;
+                margin: 10px;
+            }
+
+            p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            a {
+                word-break: break-word;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="salt-smoke">SALT + SMOKE</h1>
+    <br>
+    <br>
+    <br>
+    <section class="locations">
+        <h2 id="where">Where</h2>
+        <a href="https://maps.app.goo.gl/pJxzcKdc8irB6GdLA">6525 Delmar Blvd., St. Louis, MO 63130</a><br>
+        <a href="https://maps.app.goo.gl/2zwuGkdByZbkDaQh8">501 Clark Ave., St. Louis, MO 63102</a><br>
+        <a href="https://maps.app.goo.gl/FGNx1tzytwagD8JP7">5625 Hampton Ave., St. Louis, M 63109</a><br>
+        <a href="https://maps.app.goo.gl/s8Vjx9R3akiofkCS7">501 South Main St., St. Charles, MO 63301</a><br>
+        <a href="https://maps.app.goo.gl/Jb2e5uFnK67QeHPA7">1386 Clarkson/Clayton Shopping Center, Ellisville, MO
+            63011</a><br>
+        <a href="https://maps.app.goo.gl/hTSqYcGpafMi4mrq7">4130 Rusty Rd, St. Louis, MO 63128</a><br>
+    </section>
+    <br>
+    <br>
+    <section class="hours">
+        <h2 id="when">When</h2>
+        <p><b>Sun-Thu: 11am-9pm<br>Fri-Sat: 11am-10pm</b></p>
+    </section>
+    <br>
+    <br>
+    <section class="food">
+
+
+        <h3 id="salads">Salads</h3>
+        <p><em>Half $8.99 • Side $4.99 • Full $13.99</em></p>
+        <p>Caesar Salad<br>Kale Crunch Salad<br>Mixed Green Salad </p>
+        <p><em>Add Ons</em><br>Brisket or Cherry Smoked Salmon .................. $6.00<br>Pulled Pork
+            ...................................... $5.00<br>Falafel ..........................................
+            $5.00<br>Fried Jalapeño + Cheddar Cheese .................. $5.00 </p>
+        <hr>
+        <h3 id="sandwiches">Sandwiches</h3>
+        <p><em>Served with choice of one side • GF/Vegan bun +$2</em></p>
+        <p>Pulled Pork .............................................................
+            $14.99<br>
+            Brisket ................................................................. $16.99<br>
+            Cherry Smoked Salmon ................................... $16.99<br>
+            BLT............................................................... $13.99<br>
+            Fried Jalapeño + Cheddar Bolgna............... $13.99 <br>
+            Grilled Cheese ...................... $16.99 (brisket) / $14.99 (pulled chicken)<br>
+            Falafel Burger .........................................................................................
+            $13.99<br>
+            Oklahoma Bacon Cheeseburger .............................. $12.99 (single) / $15.99 (double)<br>
+            Chicken Caesar Wrap
+            ..................................................................................... $13.99 </p>
+        <hr>
+        <h3 id="plates">Plates</h3>
+        <p><em>Bacon &amp; cheddar popover + two sides</em></p>
+        <p>Pulled Pork ...................................... $18.99<br>Brisket
+            ..........................................
+            $22.99<br>Pulled Chicken ................................... $18.99<br>Smoked Wings
+            ..................................... $20.99<br>St. Louis Cut Ribs ...............................
+            $19.99
+            (½) /
+            $29.99 (full)<br>Fried Jalapeño + Cheddar Bologna ................. $17.99 </p>
+        <p><em>Bestie Combo</em><br>2 Meats .......................................... $21.99<br>3 Meats
+            .......................................... $25.99<br>4 Meats ..........................................
+            $29.99
+        </p>
+        <hr>
+        <h3 id="sides">Sides</h3>
+        <p>Beef Fat Fries ................................... $5.99<br>Pit Beans w/ Smoked Bacon
+            .........................
+            $4.99<br>Sweet Pepper Potato Salad ......................... $3.99<br>Coleslaw
+            .......................................... $3.99<br>White Cheddar Cracker Mac .........................
+            $5.99<br>Green Bean + Tomato Salad ......................... $4.99<br>Creamed Corn
+            ...................................... $5.99<br>Brisket Chili .....................................
+            $4.99<br>Special Side ...................................... $4.99 </p>
+        <hr>
+        <h3 id="dessert">Dessert</h3>
+        <p>Lemon Gooey Butter Cake .........................
+            $8.99<br>Dark Chocolate Brownie
+            .........................
+            $7.99<br>Browned Butter Pecan Bar
+            .........................
+            $9.99<br>Ice Cream + Sorbet ......................... $5.99 (3 Scoops) /$2.99 (à la mode)
+        </p>
+        <hr>
+        <h3 id="fountain-sodas">Fountain Sodas</h3>
+        <p>Excel Bottling Company Beverages .................. $2.99<br>Iced Tea
+            (Sweet/Unsweet)
+            .......................... $2.99<br>Sam Pellegrino
+            ....................................................... $2.99</p>
+    </section>
+    <br>
+    <br>
+</body>
+
+</html>

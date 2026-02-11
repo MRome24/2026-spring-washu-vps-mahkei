@@ -13,9 +13,12 @@
 
         h1 {
             font-family: 'Bebas Neue', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            display: inline-block;
+            display: block;
             border-style: solid;
             border-color: #8b5e2b;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         h2 {
@@ -68,6 +71,51 @@
             padding-bottom: 25px;
             border-color: rgb(180, 136, 55);
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                /* Add padding on mobile */
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                /* Smaller heading on mobile */
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .locations,
+            .hours,
+            .food {
+                padding: 15px;
+                /* Less padding on mobile */
+                border-radius: 15px;
+                /* Slightly smaller radius */
+            }
+
+            p {
+                font-size: 0.9rem;
+                /* Smaller text on mobile */
+                line-height: 1.6;
+                /* Better readability */
+            }
+
+            a {
+                word-break: break-word;
+                /* Break long addresses */
+                display: block;
+                /* Each link on its own line */
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -95,9 +143,7 @@
     <br>
     <br>
     <section class="food">
-        <h2 id="what">What</h2>
-        <h3 id="appetizers">Appetizers</h3>
-        <hr>
+
 
         <h3 id="salads">Salads</h3>
         <p><em>Half $8.99 • Side $4.99 • Full $13.99</em></p>

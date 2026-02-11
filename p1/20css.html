@@ -19,28 +19,40 @@
             padding: 0 20px;
         }
 
-        #salt-smoke {
-            margin: 0;
-            font-family: 'Gravitas One', Tahoma, Geneva, Verdana, sans-serif;
-            letter-spacing: 2px;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            max-width: 100px;
+            height: auto;
         }
 
         .website-navigation {
             background-color: rgb(255, 187, 16);
-            padding: 20px 0;
+            padding: 12px 0;
             margin: 0;
             width: 100%;
-            margin-bottom: 0px;
+            margin-bottom: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
         }
 
         nav {
-            text-align: center;
-            margin-top: 15px;
+            display: flex;
+            gap: 30px;
+            margin: 0;
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0;
             color: rgb(119, 8, 8);
             text-decoration: none;
             font-weight: bold;
@@ -49,7 +61,6 @@
 
         nav a:hover {
             text-decoration: underline;
-            font-size: 0.9rem;
         }
 
         .map-grid {
@@ -79,17 +90,21 @@
         h2 {
             color: rgba(141, 20, 20, 0.84);
             font-family: 'Gravitas One', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
         }
 
         h3 {
             color: rgb(119, 8, 8);
+            text-align: center;
         }
 
         h5 {
             color: rgb(119, 8, 8);
         }
 
-
+        p {
+            text-align: center;
+        }
 
         table {
             width: 90%;
@@ -125,24 +140,102 @@
         .table-subsection {
             text-align: center;
         }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(255, 187, 16);
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: rgb(119, 8, 8);
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        html {
+            scroll-padding-top: 130px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-top: 2px solid rgba(255, 187, 16, 0.3);
+        }
+
+        section:first-child {
+            border-top: none
+        }
+
+        section:nth-child(even) {
+            background-color: white;
+        }
+
+        section:nth-child(odd) {
+            background-color: rgb(245, 242, 228);
+        }
+
+        section h2 {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgb(255, 187, 16);
+            display: inline-block;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="website-navigation">
-            <h1 id="salt-smoke">SALT + SMOKE</h1>
+
+    <div class="website-navigation">
+        <div class="nav-container">
+            <img src="Salt+Smoke_logo.png" alt="Salt + Smoke Logo" id="logo">
             <nav>
                 <a href="#where">Locations</a>
                 <a href="#when">Hours</a>
-                <a href="#what">Food</a>
+                <div class="dropdown">
+                    <a href="#what" class="dropdown-toggle">Food</a>
+                    <div class="dropdown-menu">
+                        <a href="#salads">Salads</a>
+                        <a href="#sandwiches">Sandwiches</a>
+                        <a href="#plates">Plates</a>
+                        <a href="#sides">Sides</a>
+                        <a href="#dessert">Desserts</a>
+                        <a href="#drinks">Drinks</a>
+                    </div>
+                </div>
             </nav>
-            <br>
-
         </div>
-        <h2 id="where">Locations</h2>
-        <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
-        <section class="locations">
+    </div>
+
+    <section id="where">
+        <div class="container">
+            <h2>Locations</h2>
+            <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
             <div class="map-grid">
                 <div class="cell">
                     <h3 id="delmar-blvd">Delmar Blvd</h3>
@@ -182,310 +275,313 @@
                         width="320" height="200" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr>
-        <h2 id="when">Hours</h2>
-        <p><strong>We're open seven days a week! Our hours are the same at each location</strong></p>
-        <table class="hours">
-            <thead>
-                <tr>
-                    <th class="left" scope="col">Days of the Week</th>
-                    <th class="right" scope="col">Hours of Operation</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="left">Sunday–Thursday</td>
-                    <td class="right">11am–9pm</td>
-                </tr>
-                <tr>
-                    <td class="left">Friday–Saturday</td>
-                    <td class="right">11am–10pm</td>
-                </tr>
-            </tbody>
-        </table>
+    <section id="when">
+        <div class="container">
+            <h2>Hours</h2>
+            <p><strong>We're open seven days a week! Our hours are the same at each location</strong></p>
+            <table class="hours">
+                <thead>
+                    <tr>
+                        <th class="left" scope="col">Days of the Week</th>
+                        <th class="right" scope="col">Hours of Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">Sunday–Thursday</td>
+                        <td class="right">11am–9pm</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Friday–Saturday</td>
+                        <td class="right">11am–10pm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
+    <section id="what">
+        <div class="container">
+            <h2>Food</h2>
+            <h3 id="salads">Salads</h3>
+            <table class="salad-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Small</th>
+                        <th scope="col">Medium</th>
+                        <th scope="col">Large</th>
+                    </tr>
+                </thead>
 
-        <hr>
-        <h2 id="what">Food</h2>
-        <h3 id="salads">Salads</h3>
-        <table class="salad-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Item</th>
-                    <th scope="col">Small</th>
-                    <th scope="col">Medium</th>
-                    <th scope="col">Large</th>
-                </tr>
-            </thead>
+                <tbody>
+                    <tr>
+                        <td>Caesar Salad</td>
+                        <td>$8.99</td>
+                        <td>$4.99</td>
+                        <td>$13.99</td>
+                    </tr>
 
-            <tbody>
-                <tr>
-                    <td>Caesar Salad</td>
-                    <td>$8.99</td>
-                    <td>$4.99</td>
-                    <td>$13.99</td>
-                </tr>
+                    <tr>
+                        <td>Kale Crunch Salad</td>
+                        <td>$8.99</td>
+                        <td>$4.99</td>
+                        <td>$13.99</td>
+                    </tr>
 
-                <tr>
-                    <td>Kale Crunch Salad</td>
-                    <td>$8.99</td>
-                    <td>$4.99</td>
-                    <td>$13.99</td>
-                </tr>
+                    <tr>
+                        <td>Mixed Green Salad</td>
+                        <td>$8.99</td>
+                        <td>$4.99</td>
+                        <td>$13.99</td>
+                    </tr>
 
-                <tr>
-                    <td>Mixed Green Salad</td>
-                    <td>$8.99</td>
-                    <td>$4.99</td>
-                    <td>$13.99</td>
-                </tr>
-
-                <tr>
-                    <td class="table-subsection" colspan="4"><strong>Add-Ons</strong></td>
-                </tr>
-
-
-                <tr>
-                    <td>Brisket</td>
-                    <td colspan="3">$6.00</td>
-                </tr>
-
-                <tr>
-                    <td>Cherry Smoked Salmon</td>
-                    <td colspan="3">$6.00</td>
-                </tr>
-
-                <tr>
-                    <td>Pulled Pork</td>
-                    <td colspan="3">$5.00</td>
-                </tr>
-
-                <tr>
-                    <td>Falafel</td>
-                    <td colspan="3">$5.00</td>
-                </tr>
-
-                <tr>
-                    <td>Jalapeño + Cheddar Bologna</td>
-                    <td colspan="3">$5.00</td>
-                </tr>
-
-                <tr>
-                    <td>Pulled Chicken</td>
-                    <td colspan="3">$5.00</td>
-                </tr>
-            </tbody>
-        </table>
+                    <tr>
+                        <td class="table-subsection" colspan="4"><strong>Add-Ons</strong></td>
+                    </tr>
 
 
+                    <tr>
+                        <td>Brisket</td>
+                        <td colspan="3">$6.00</td>
+                    </tr>
 
-        <h3 id="sandwiches">Sandwiches</h3>
-        <table class="sandwiches-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Sandwich</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pulled Pork</td>
-                    <td>$14.99</td>
-                </tr>
-                <tr>
-                    <td>Brisket</td>
-                    <td>$16.99</td>
-                </tr>
-                <tr>
-                    <td>Pulled Chicken</td>
-                    <td>$14.99</td>
-                </tr>
-                <tr>
-                    <td>Cherry Smoked Salmon</td>
-                    <td>$14.99</td>
-                </tr>
-                <tr>
-                    <td>Fried Jalapeño + Cheddar Bologna</td>
-                    <td>$13.99</td>
-                </tr>
-                <tr>
-                    <td>BLT</td>
-                    <td>$13.99</td>
-                </tr>
-                <tr>
-                    <td>Grilled Cheese (Brisket/Pulled Chicken)</td>
-                    <td>$16.99/$14.99</td>
-                </tr>
-                <tr>
-                    <td>Falafel Burger</td>
-                    <td>$13.99</td>
-                </tr>
-                <tr>
-                    <td>Oklahoma Bacon Cheeseburger (Single/Double)</td>
-                    <td>$12.99/15.00</td>
-                </tr>
-                <tr>
-                    <td>Chicken Caesar Wrap (Smoked Chicken/Buffalo Chicken)</td>
-                    <td>$13.99</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3 id="plates">Plates</h3>
-        <table class="sandwiches-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Entree</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pulled Pork</td>
-                    <td>$18.99</td>
-                </tr>
-                <tr>
-                    <td>Brisket</td>
-                    <td>$22.99</td>
-                </tr>
-                <tr>
-                    <td>Pulled Chicken</td>
-                    <td>$18.99</td>
-                </tr>
-                <tr>
-                    <td>Smoked Wings</td>
-                    <td>$14.99</td>
-                </tr>
-                <tr>
-                    <td>Fried Jalapeño + Cheddar Bologna</td>
-                    <td>$17.99</td>
-                </tr>
-                <tr>
-                    <td>St. Louis Cut Ribs (1/2 Rack/Full)</td>
-                    <td>$19.99/29.99</td>
-                </tr>
-                <tr>
-                    <td class="table-subsection" colspan="2"><b>Bestie Combo</b></td>
-                </tr>
-                <tr>
-                    <td>2 Meats</td>
-                    <td>$21.99</td>
-                </tr>
-                <tr>
-                    <td>3 Meats</td>
-                    <td>$25.99</td>
-                </tr>
-                <tr>
-                    <td>4 Meats</td>
-                    <td>$29.99</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3 id="sides">Sides</h3>
-        <table class="sides-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Side</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Beef Fat Fries</td>
-                    <td>$5.99</td>
-                </tr>
-                <tr>
-                    <td>Pit Beans</td>
-                    <td>$4.99</td>
-                </tr>
-                <tr>
-                    <td>Sweet Pepper Potato Salad</td>
-                    <td>$3.99</td>
-                </tr>
-                <tr>
-                    <td>Coleslaw</td>
-                    <td>$3.99</td>
-                </tr>
-                <tr>
-                    <td>White Cheddar Cracker Mac</td>
-                    <td>$5.99</td>
-                </tr>
-                <tr>
-                    <td>Green Bean + Tomato Salad</td>
-                    <td>$4.99</td>
-                </tr>
-                <tr>
-                    <td>Creamed Corn</td>
-                    <td>$5.99</td>
-                </tr>
-                <tr>
-                    <td>Brisket Chili</td>
-                    <td>$4.99</td>
-                </tr>
-                <tr>
-                    <td>Special Side</td>
-                    <td>$4.99</td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
-        <h3 id="dessert">Desserts</h3>
-        <table class="desserts-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Dessert</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lemon Gooey Butter Cake</td>
-                    <td>$8.99</td>
-                </tr>
-                <tr>
-                    <td>Dark Chocolate Brownie</td>
-                    <td>$7.99</td>
-                </tr>
-                <tr>
-                    <td>Browned Butter Pecan Bar</td>
-                    <td>$9.99</td>
-                </tr>
-                <tr>
-                    <td>Ice Cream / Sorbet</td>
-                    <td>$5.99</td>
-                </tr>
-                <tr>
-                    <td>Ice Cream / À La Mode</td>
-                    <td>$2.99</td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
-        <h3 id="drinks">Drinks</h3>
-        <table class="drinks-menu">
-            <thead>
-                <tr>
-                    <th scope="col">Beverage</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Excel Bottling Company Beverages</td>
-                    <td>$2.99</td>
-                </tr>
-                <tr>
-                    <td>Iced Tea</td>
-                    <td>$2.99</td>
-                </tr>
-                <tr>
-                    <td>San Pellegrino</td>
-                    <td>$2.99</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                    <tr>
+                        <td>Cherry Smoked Salmon</td>
+                        <td colspan="3">$6.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pulled Pork</td>
+                        <td colspan="3">$5.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Falafel</td>
+                        <td colspan="3">$5.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Jalapeño + Cheddar Bologna</td>
+                        <td colspan="3">$5.00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pulled Chicken</td>
+                        <td colspan="3">$5.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <h3 id="sandwiches">Sandwiches</h3>
+            <table class="sandwiches-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Sandwich</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pulled Pork</td>
+                        <td>$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>Brisket</td>
+                        <td>$16.99</td>
+                    </tr>
+                    <tr>
+                        <td>Pulled Chicken</td>
+                        <td>$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>Cherry Smoked Salmon</td>
+                        <td>$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>Fried Jalapeño + Cheddar Bologna</td>
+                        <td>$13.99</td>
+                    </tr>
+                    <tr>
+                        <td>BLT</td>
+                        <td>$13.99</td>
+                    </tr>
+                    <tr>
+                        <td>Grilled Cheese (Brisket/Pulled Chicken)</td>
+                        <td>$16.99/$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>Falafel Burger</td>
+                        <td>$13.99</td>
+                    </tr>
+                    <tr>
+                        <td>Oklahoma Bacon Cheeseburger (Single/Double)</td>
+                        <td>$12.99/15.00</td>
+                    </tr>
+                    <tr>
+                        <td>Chicken Caesar Wrap (Smoked Chicken/Buffalo Chicken)</td>
+                        <td>$13.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="plates">Plates</h3>
+            <table class="sandwiches-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Entree</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pulled Pork</td>
+                        <td>$18.99</td>
+                    </tr>
+                    <tr>
+                        <td>Brisket</td>
+                        <td>$22.99</td>
+                    </tr>
+                    <tr>
+                        <td>Pulled Chicken</td>
+                        <td>$18.99</td>
+                    </tr>
+                    <tr>
+                        <td>Smoked Wings</td>
+                        <td>$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>Fried Jalapeño + Cheddar Bologna</td>
+                        <td>$17.99</td>
+                    </tr>
+                    <tr>
+                        <td>St. Louis Cut Ribs (1/2 Rack/Full)</td>
+                        <td>$19.99/29.99</td>
+                    </tr>
+                    <tr>
+                        <td class="table-subsection" colspan="2"><b>Bestie Combo</b></td>
+                    </tr>
+                    <tr>
+                        <td>2 Meats</td>
+                        <td>$21.99</td>
+                    </tr>
+                    <tr>
+                        <td>3 Meats</td>
+                        <td>$25.99</td>
+                    </tr>
+                    <tr>
+                        <td>4 Meats</td>
+                        <td>$29.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="sides">Sides</h3>
+            <table class="sides-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Side</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Beef Fat Fries</td>
+                        <td>$5.99</td>
+                    </tr>
+                    <tr>
+                        <td>Pit Beans</td>
+                        <td>$4.99</td>
+                    </tr>
+                    <tr>
+                        <td>Sweet Pepper Potato Salad</td>
+                        <td>$3.99</td>
+                    </tr>
+                    <tr>
+                        <td>Coleslaw</td>
+                        <td>$3.99</td>
+                    </tr>
+                    <tr>
+                        <td>White Cheddar Cracker Mac</td>
+                        <td>$5.99</td>
+                    </tr>
+                    <tr>
+                        <td>Green Bean + Tomato Salad</td>
+                        <td>$4.99</td>
+                    </tr>
+                    <tr>
+                        <td>Creamed Corn</td>
+                        <td>$5.99</td>
+                    </tr>
+                    <tr>
+                        <td>Brisket Chili</td>
+                        <td>$4.99</td>
+                    </tr>
+                    <tr>
+                        <td>Special Side</td>
+                        <td>$4.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="dessert">Desserts</h3>
+            <table class="desserts-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Dessert</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lemon Gooey Butter Cake</td>
+                        <td>$8.99</td>
+                    </tr>
+                    <tr>
+                        <td>Dark Chocolate Brownie</td>
+                        <td>$7.99</td>
+                    </tr>
+                    <tr>
+                        <td>Browned Butter Pecan Bar</td>
+                        <td>$9.99</td>
+                    </tr>
+                    <tr>
+                        <td>Ice Cream / Sorbet</td>
+                        <td>$5.99</td>
+                    </tr>
+                    <tr>
+                        <td>Ice Cream / À La Mode</td>
+                        <td>$2.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="drinks">Drinks</h3>
+            <table class="drinks-menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Beverage</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Excel Bottling Company Beverages</td>
+                        <td>$2.99</td>
+                    </tr>
+                    <tr>
+                        <td>Iced Tea</td>
+                        <td>$2.99</td>
+                    </tr>
+                    <tr>
+                        <td>San Pellegrino</td>
+                        <td>$2.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </body>
 
 </html>

@@ -28,6 +28,27 @@
             align-items: center;
         }
 
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            #logo {
+                max-width: 80px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+
         #logo {
             max-width: 100px;
             height: auto;
@@ -77,8 +98,17 @@
 
         .cell {
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
 
+        }
+
+        .cell:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
 
         iframe {
@@ -92,6 +122,7 @@
             font-family: 'Gravitas One', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
         }
+
 
         h3 {
             color: rgb(119, 8, 8);
@@ -129,6 +160,16 @@
             background-color: #f9f9f9;
         }
 
+        table tbody tr {
+            transition: background-color 0.2s;
+
+        }
+
+        table tbody tr:hover {
+            background-color: rgba(255, 187, 16, 0.2) !important;
+            cursor: pointer
+        }
+
         @media (max-width: 768px) {
             table {
                 display: block;
@@ -139,6 +180,7 @@
 
         .table-subsection {
             text-align: center;
+            background-color: rgb(255, 187, 16);
         }
 
         .dropdown {
@@ -204,7 +246,15 @@
             margin-bottom: 30px;
             padding-bottom: 15px;
             border-bottom: 3px solid rgb(255, 187, 16);
-            display: inline-block;
+            width: 100%;
+        }
+
+
+        footer {
+            background-color: rgb(255, 187, 16);
+            text-align: center;
+            padding: 30px;
+            color: rgb(119, 8, 8);
         }
     </style>
 </head>
@@ -236,6 +286,7 @@
         <div class="container">
             <h2>Locations</h2>
             <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
+            <br>
             <div class="map-grid">
                 <div class="cell">
                     <h3 id="delmar-blvd">Delmar Blvd</h3>
@@ -582,6 +633,9 @@
             </table>
         </div>
     </section>
+    <footer>
+        <p>&copy; 2026 Salt + Smoke. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

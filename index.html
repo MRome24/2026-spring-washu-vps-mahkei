@@ -5,11 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahkei's Class Website, Spring 2026 at WashU</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --black: #0d0d0d;
+            --lime: #39ff14;
+            --lime-dim: #1fa80b;
+            --lime-faint: rgba(57, 255, 20, 0.06);
+            --lime-glow: rgba(57, 255, 20, 0.4);
+            --grey: #2a2a2a;
+            --muted: #3a5c35;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html,
         body {
-            background-color: rgb(174, 226, 165);
+            min-height: 100vh;
+            background-color: var(--black);
+            color: var(--lime);
+            font-family: 'Share Tech Mono', 'Courier New', monospace;
+            font-size: 15px;
+        }
+
+        /* CRT Scanline Effect */
+        body ::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* CRT Vignette */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            z-index: 99;
         }
     </style>
 </head>

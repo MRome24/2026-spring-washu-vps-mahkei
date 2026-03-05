@@ -53,31 +53,126 @@
             pointer-events: none;
             z-index: 99;
         }
+
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 48px 32px 80px;
+        }
+
+        /* Boot Sequence Header */
+        header {
+            margin-bottom: 40px;
+            animation: fadeIn 0.4s ease both;
+        }
+
+        .boot-lines {
+            font-size: 0.78rem;
+            color: var(--lime-dim);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .boot-lines span {
+            display: block;
+            opacity: 0;
+            animation: appear 0.1s ease forwards;
+        }
+
+        .boot-lines span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .boot-lines span:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .boot-lines span:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .boot-lines span:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+
+        .boot-lines span:nth-child(5) {
+            animation-delay: 0.9s;
+        }
+
+        header h1 {
+            font-family: 'VT323', monospace;
+            font-size: clamp(2.2rem, 6vw, 3.6rem);
+            color: var(--lime);
+            text-shadow: 0 0 10px var(--lime-glow), 0 0 30px rgba(57, 255, 20, 0.15);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            animation: flickerIn 0.6s 1.1s ease both;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: var(--lime-dim);
+            animation: appear 0.3s 1.4s ease both;
+            opacity: 0;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Mahkei's class website!</h1>
-    <p>Welcome to my class website!</p>
-    <hr>
-    <h2>Exercises</h2>
-    <ul>
-        <li><a href="profile-card.html">Profile Card</a></li>
-        <li>Collection of Things</li>
-    </ul>
-    <h2>Readings</h2>
-    <ul>
-        <li><a href="reading1.html">Restaurant Websites</a></li>
-        <li><a href="reading2.html">The New Turing Test</a></li>
-        <li><a href="reading3.html">The New Turing Test</a></li>
-        <li>...</li>
-    </ul>
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="p1/index.html">Project 1. Restaurant or Café Variations</a></li>
-        <li><a href="p2/index.html"> 2. Book → Website</a></li>
-        <li>Project 3. Standby Mode</li>
-    </ul>
+    <div class="wrapper">
+        <header>
+            <div class="boot-line">
+                <span>WASHU_OS v2026.1 - initializing...</span>
+                <span>Loaing modules: [comp-eng] [hci] [McKelvey] [Sam-Fox] ............ OK </span>
+                <span>Mounting /home/mahkei ............ OK</span>
+                <span>Establishing session: spring-2026 ............ OK</span>
+                <span>Boot complete. Welcome back.</span>
+            </div>
+            <h1>Mahkei's class website!</h1>
+            <p>Spring 2026 &middot; Washington University in St. Louis &middot; DESIGN 1265</p>
+            <div class="prompt-line">
+                ls - la &nbsp;<span class="cursor"></span>
+            </div>
+        </header>
+
+        <hr class="divider">
+
+        <section>
+            <h2>Exercises</h2>
+            <ul>
+                <li><a href="profile-card.html">Profile Card</a></li>
+                <li>Collection of Things</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Readings</h2>
+            <ul>
+                <li><a href="reading1.html">Restaurant Websites</a></li>
+                <li><a href="reading2.html">The New Turing Test</a></li>
+                <li><a href="reading3.html">The New Turing Test</a></li>
+                <li>...</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="p1/index.html">Project 1. Restaurant or Café Variations</a></li>
+                <li><a href="p2/index.html"> 2. Book → Website</a></li>
+                <li>Project 3. Standby Mode</li>
+            </ul>
+        </section>
+
+        <footer>
+            <span>session: spring-2026</span>
+            <span>uptime: ongoing</span>
+            <span>[q] quit &nbsp;[h] help</span>
+        </footer>
+    </div>
 </body>
 
 </html>

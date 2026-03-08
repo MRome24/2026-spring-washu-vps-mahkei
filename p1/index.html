@@ -4,39 +4,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P1</title>
+    <title>P1 – Salt + Smoke</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(245, 242, 228);
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(60, 20, 10);
+        }
+
+        /* Nav */
+        .project-navigation {
+            background-color: rgb(255, 187, 16);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: rgb(119, 8, 8);
+            letter-spacing: 0.05em;
+        }
+
+        /* Main content */
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: rgb(119, 8, 8);
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: rgba(119, 8, 8, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        /* Groups */
+        .group {
+            margin-bottom: 36px;
+        }
+
+        .group h2 {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgb(119, 8, 8);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .group h2::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: rgb(255, 187, 16);
+        }
+
+        /* Links */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            color: rgb(119, 8, 8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        li a:hover {
+            background: rgba(255, 187, 16, 0.15);
+            border-color: rgba(255, 187, 16, 0.5);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 22px;
+            padding: 0 6px;
+            background: rgb(255, 187, 16);
+            color: rgb(119, 8, 8);
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+
+        li a:hover .badge {
+            background: rgb(119, 8, 8);
+            color: rgb(255, 187, 16);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>SALT + SMOKE</h1>
-    <i>20 Variations:</i>
-    <br><br>
-    <a href="01.md">1 - Markdown</a><br>
-    <a href="02.md">2 - Markdown</a><br>
-    <a href="03.md">3 - Markdown</a><br>
-    <a href="04.md">4 - Markdown</a><br>
-    <a href="05.md">5 - Markdown</a><br>
-    <br>
-    <a href="06.html">6 - HTML</a><br>
-    <a href="07.html">7 - HTML</a><br>
-    <a href="08.html">8 - HTML</a><br>
-    <a href="09.html">9 - HTML</a><br>
-    <a href="10.html">10 - HTML</a><br>
-    <br>
-    <a href="11css.html">11 - HTML &amp; CSS</a><br>
-    <a href="12css.html">12 - HTML &amp; CSS</a><br>
-    <a href="13css.html">13 - HTML &amp; CSS</a><br>
-    <a href="14css.html">14 - HTML &amp; CSS</a><br>
-    <a href="15css.html">15 - HTML &amp; CSS</a><br>
-    <br>
-    <a href="16css.html">16 - HTML &amp; CSS</a><br>
-    <a href="17css.html">17 - HTML &amp; CSS</a><br>
-    <a href="18css.html">18 - HTML &amp; CSS</a><br>
-    <a href="19css.html">19 - HTML &amp; CSS</a><br>
-    <a href="20css.html">20 - HTML &amp; CSS - Final</a><br>
 
+    <div class="project-navigation">
+        <div class="nav-container">
+            <span class="nav-title">P1 - 20 Variations - SALT + SMOKE</span>
+        </div>
+    </div>
 
+    <div class="wrapper">
+        <h1>SALT + SMOKE</h1>
 
+        <div class="group">
+            <h2>Markdown</h2>
+            <ul>
+                <li><a href="01.md"><span class="badge">01</span> Markdown</a></li>
+                <li><a href="02.md"><span class="badge">02</span> Markdown</a></li>
+                <li><a href="03.md"><span class="badge">03</span> Markdown</a></li>
+                <li><a href="04.md"><span class="badge">04</span> Markdown</a></li>
+                <li><a href="05.md"><span class="badge">05</span> Markdown</a></li>
+            </ul>
+        </div>
+
+        <div class="group">
+            <h2>HTML</h2>
+            <ul>
+                <li><a href="06.html"><span class="badge">06</span> HTML</a></li>
+                <li><a href="07.html"><span class="badge">07</span> HTML</a></li>
+                <li><a href="08.html"><span class="badge">08</span> HTML</a></li>
+                <li><a href="09.html"><span class="badge">09</span> HTML</a></li>
+                <li><a href="10.html"><span class="badge">10</span> HTML</a></li>
+            </ul>
+        </div>
+
+        <div class="group">
+            <h2>HTML &amp; CSS</h2>
+            <ul>
+                <li><a href="11css.html"><span class="badge">11</span> HTML &amp; CSS</a></li>
+                <li><a href="12css.html"><span class="badge">12</span> HTML &amp; CSS</a></li>
+                <li><a href="13css.html"><span class="badge">13</span> HTML &amp; CSS</a></li>
+                <li><a href="14css.html"><span class="badge">14</span> HTML &amp; CSS</a></li>
+                <li><a href="15css.html"><span class="badge">15</span> HTML &amp; CSS</a></li>
+                <li><a href="16css.html"><span class="badge">16</span> HTML &amp; CSS</a></li>
+                <li><a href="17css.html"><span class="badge">17</span> HTML &amp; CSS</a></li>
+                <li><a href="18css.html"><span class="badge">18</span> HTML &amp; CSS</a></li>
+                <li><a href="19css.html"><span class="badge">19</span> HTML &amp; CSS</a></li>
+                <li><a href="20css.html"><span class="badge">20</span> HTML &amp; CSS &middot;
+                        <strong>Final</strong></a></li>
+            </ul>
+        </div>
+    </div>
 
 
 

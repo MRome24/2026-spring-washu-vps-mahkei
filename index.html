@@ -118,6 +118,200 @@
             animation: appear 0.3s 1.4s ease both;
             opacity: 0;
         }
+
+        .prompt-line {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 085rem;
+            color: var(--line-dim);
+            animation: appear 0.3s 1.6s ease both;
+            opacity: 0;
+        }
+
+        .prompt-line::before {
+            content: '~/design1265$';
+            color: var(--muted);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 9px;
+            height: 1.1em;
+            background: var(--lime);
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+            box-shadow: 0 0 6px var(--lime-glow);
+        }
+
+        hr.divider {
+            border: none;
+            border-top: 1px solid var(--grey);
+            margin: 32px 0;
+            animation: appear 0.3s 1.7s ease both;
+            opacity: 0;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: appear 0.4s ease forwards;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 1.9s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 2.1s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 2.3s;
+        }
+
+        section h2 {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--lime-dim);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h2::before {
+            content: '//';
+            color: var(--muted);
+        }
+
+        section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--grey);
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        li {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            color: var(--lime);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.15s, text-shadow 0.15s;
+            border: 1px solid transparent;
+            border-radius: 2px;
+        }
+
+        li::before {
+            content: '>';
+            color: var(--muted);
+            flex-shrink: 0;
+            transition: color 0.15s;
+        }
+
+        li:has(a):hover {
+            background: var(--lime-faint);
+            border-color: rgba(57, 255, 20, 0.15);
+            text-shadow: 0 0 8px var(--lime-glow);
+        }
+
+        li:has(a):hover::before {
+            color: var(--lime);
+        }
+
+        li a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        li:not(:has(a)) {
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        li:not(:has(a))::before {
+            color: var(--grey);
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 56px;
+            padding-top: 20px;
+            border-top: 1px solid var(--grey);
+            font-size: 0.72rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            animation: appear 0.3s 2.5s ease both;
+            opacity: 0;
+        }
+
+        /* ── Animations ── */
+        @keyframes appear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes flickerIn {
+            0% {
+                opacity: 0;
+                text-shadow: none;
+            }
+
+            30% {
+                opacity: 1;
+                text-shadow: 0 0 20px var(--lime-glow);
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            70% {
+                opacity: 1;
+                text-shadow: 0 0 10px var(--lime-glow);
+            }
+
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 10px var(--lime-glow), 0 0 30px rgba(57, 255, 20, 0.15);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 

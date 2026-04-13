@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Conversation with Michelle</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f0e8;
+      --surface: #efe9dc;
+      --ink: #2c2520;
+      --ink-soft: #5a4f47;
+      --ink-faint: #9a8f87;
+      --rule: #d9d0c4;
+      --accent: #8c6a4e;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2.5rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-brand {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* TOC TOP */
+    .toc-top-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 5rem;
+      align-items: start;
+      border-bottom: 1px solid var(--rule);
+      animation: rise 0.6s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-intro {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      max-width: 520px;
+      border-left: 2px solid var(--rule);
+      padding-left: 1.25rem;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: sticky;
+      top: 70px;
+    }
+
+    .headshot-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--rule);
+      margin-bottom: 1.25rem;
+    }
+
+    .subject-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .subject-role {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 4px 0 1rem;
+    }
+
+    .subject-bio {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+    }
+
+    /* MAIN Q&A */
+    .main-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .qa-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* QUESTION BLOCK */
+    .qa-block {
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.2s;
+      border-radius: 2px;
+    }
+
+    .qa-block:hover {
+      background: var(--surface);
+    }
+
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 2rem 1rem 2rem 0;
+      display: grid;
+      grid-template-columns: 40px 1fr 24px;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .q-num {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink-faint);
+      padding-top: 5px;
+      letter-spacing: 0.05em;
+    }
+
+    .q-body {
+      display: block;
+    }
+
+    .q-question {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 0.6rem;
+    }
+
+    .q-takeaway {
+      display: block;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+
+    .q-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--ink-faint);
+      transition: transform 0.3s ease, color 0.2s;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .qa-block:hover .q-chevron {
+      color: var(--accent);
+    }
+
+    details[open] .q-chevron {
+      transform: rotate(180deg);
+    }
+
+    .answer-body {
+      padding: 0 1rem 2rem 3.5rem;
+    }
+
+    .answer-body p {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .answer-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* TOC */
+    .toc-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 0.6rem 0;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+
+    .toc-list a:hover {
+      color: var(--accent);
+      padding-left: 4px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .qa-block {
+      animation: rise 0.4s ease both;
+    }
+
+    .qa-block:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .qa-block:nth-child(2) {
+      animation-delay: 0.10s;
+    }
+
+    .qa-block:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .qa-block:nth-child(4) {
+      animation-delay: 0.20s;
+    }
+
+    .qa-block:nth-child(5) {
+      animation-delay: 0.25s;
+    }
+
+    .qa-block:nth-child(6) {
+      animation-delay: 0.30s;
+    }
+
+    .qa-block:nth-child(7) {
+      animation-delay: 0.35s;
+    }
+
+    /* RESPONSIVE */
+
+    /* --- Tablet (900px and below) --- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr 200px;
+        gap: 3rem;
+      }
+    }
+
+    /* --- Mobile (720px and below) --- */
+    @media (max-width: 720px) {
+      nav {
+        padding: 0 1rem;
+        gap: 0.5rem;
+      }
+
+      .nav-links {
+        gap: 0.6rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .toc-top-wrap {
+        padding: 1.25rem 1rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .headshot-img {
+        max-width: 180px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .main-wrap {
+        padding: 2.5rem 1rem 4rem;
+      }
+
+      .answer-body {
+        padding: 0 0.5rem 1.5rem 0;
+      }
+
+      details summary {
+        grid-template-columns: 32px 1fr 20px;
+        padding: 1.25rem 0.25rem 1.25rem 0;
+      }
+
+      .hero-title {
+        font-size: clamp(30px, 9vw, 48px);
+      }
+    }
+
+    /* --- Small mobile (420px and below) --- */
+    @media (max-width: 420px) {
+      .nav-brand {
+        font-size: 10px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .hero-intro {
+        font-size: 16px;
+      }
+
+      .q-question {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <span class="nav-brand">Interview</span>
+    <ul class="nav-links">
+      <li><a href="#q1">Q1</a></li>
+      <li><a href="#q2">Q2</a></li>
+      <li><a href="#q3">Q3</a></li>
+      <li><a href="#q4">Q4</a></li>
+      <li><a href="#q5">Q5</a></li>
+      <li><a href="#q6">Q6</a></li>
+      <li><a href="#q7">Q7</a></li>
+    </ul>
+  </nav>
+
+  <div class="toc-top-wrap">
+    <p class="toc-label">Questions</p>
+    <ul class="toc-list">
+      <li><a href="#q1">Q1: Could you describe your background or experi...</a></li>
+      <li><a href="#q2">Q2: How do you navigate the relationship between...</a></li>
+      <li><a href="#q3">Q3: Have you utilized AI tools to assist in your...</a></li>
+      <li><a href="#q4">Q4: How do you view AI's impact on traditional a...</a></li>
+      <li><a href="#q5">Q5: How do you see websites evolving structurall...</a></li>
+      <li><a href="#q6">Q6: Do you believe AI has the potential to compl...</a></li>
+      <li><a href="#q7">Q7: What is the most significant challenge when ...</a></li>
+    </ul>
+  </div>
+
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">In Conversation</p>
+      <h1 class="hero-title">Web Design,<br><em>Art,</em> and<br>Artificial Intelligence</h1>
+      <p class="hero-intro">"To design with empathy, an understanding of the psychology that goes into design, and
+        applying those connections into web design, is truly valuable."</p>
+    </div>
+    <aside class="sidebar" aria-label="Interview subject profile">
+      <img class="headshot-img" src="Michelle_Headshot.jpeg" alt="Michelle">
+      <div class="subject-name">Michelle Lin</div>
+      <div class="subject-role">Mechanical Engineer at WashU</div>
+      <p class="subject-bio">Michelle is a mechanical engineer at Washington University in St. Louis. Beyond the
+        classroom, she is a web designer and digital artist whose passion for design began in sixth
+        grade. With experience in front-end development, React, and Tailwind CSS, she approaches every project at the
+        intersection of empathy, visual storytelling, and interactive craft.</p>
+    </aside>
+  </div>
+
+  <div class="main-wrap">
+    <main class="qa-col">
+      <p class="qa-label">The Interview</p>
+
+      <div class="qa-block" id="q1">
+        <details>
+          <summary>
+            <span class="q-num">01</span>
+            <span class="q-body">
+              <span class="q-question">Could you describe your background or experience with web design?</span>
+              <span class="q-takeaway">Those first few seconds on a landing page are vital to capture interest.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>Art and design have engulfed my life since I was young. I started out with digital art in 6th grade and
+              consequently, picked up on the techniques artists use to characterize their art, which includes learning
+              how to apply color theory and getting creative with different personal styles for artworks. In high
+              school, I began to see students making designs for clubs, feeling inspired to share my designs with a
+              larger group of people through club social media posts.</p>
+            <p>Those tasks are very similar to web design, something that I only began learning in my junior year of
+              high school, but later grew into a personal hobby where I can turn a design interactive for an audience.
+              My experience with web design currently includes front-end programming skills, React, and Tailwind CSS,
+              small hackathon projects, and ongoing personal projects. When approaching a new project, the primary
+              visual principles I prioritize are what the main subject of interest is and the typography that aids
+              viewers in recognizing the message. What draws them in first when they view the landing page, and then to
+              follow up, what is their next decision?</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q2">
+        <details>
+          <summary>
+            <span class="q-num">02</span>
+            <span class="q-body">
+              <span class="q-question">How do you navigate the relationship between aesthetic expression and user
+                experience?</span>
+              <span class="q-takeaway">Empathy is the key to understanding how to balance utility and visual art.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>It's important to have a balance between these two. In web design, utility and visual art go hand in
+              hand. User experience is always on my mind while making digital designs, and empathy is key to
+              understanding how to achieve that. Choosing the right color palette plays a huge role in storytelling that
+              web design depends on. Playing around with texts, objects, buttons, images, sound effects, and more, in a
+              digital space, allows you to fully engage in the digital environments, maximizing the presence of both UX
+              and aesthetic expression.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q3">
+        <details>
+          <summary>
+            <span class="q-num">03</span>
+            <span class="q-body">
+              <span class="q-question">Have you utilized AI tools to assist in your web design or creative
+                workflows?</span>
+              <span class="q-takeaway">AI handles the foundation; human insight handles the empathy.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>For creativity, I prefer looking at other real designs created by artists, that may be looking on
+              Pinterest or Dribbble, to see works created by humans. AI tools, specifically Claude, have only helped me
+              with generating fast web mockups for projects with a short timeline and assist with debugging code. Unlike
+              other AI, Claude has the ability to build basic HTML websites that other LLMs have not been able to do
+              yet. Building the foundations within seconds has eliminated blockage in workflows, and sometimes, with
+              prompts, they add features that I normally wouldn't have thought of at that step.</p>
+            <p>With AI playing a role in coding, I don't believe it directly harms creativity unless it gets to a point
+              where every step of the process depends on LLMs. For example, if I had a formatting issue in my code, I
+              would ask Claude to detect the error and save myself time. But to design the website with empathy, an
+              understanding of the psychology that goes into design, and taking the time to really read about the impact
+              of different designs in the world, and applying those connections into web design, is truly valuable.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q4">
+        <details>
+          <summary>
+            <span class="q-num">04</span>
+            <span class="q-body">
+              <span class="q-question">How do you view AI's impact on traditional artistic expression and originality in
+                web design?</span>
+              <span class="q-takeaway">Without human creativity in the loop, AI only ever generates recycled
+                work.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>As more designers start relying on AI, and solely on AI with no further contribution, it could gradually
+              eliminate their motivations to make traditional artistic expressions. LLMs also use data from other LLMs,
+              that data also gets used to train other models, so if we only use AI without our own creativity, it will
+              generate recycled work. We've seen it in academia where AI hallucinates on simple prompts. Models aren't
+              perfect right now, but as they continue to update, it can be beneficial for designers to speed up their
+              workflow, especially for those with plans but less experienced with programming the back-end.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q5">
+        <details>
+          <summary>
+            <span class="q-num">05</span>
+            <span class="q-body">
+              <span class="q-question">How do you see websites evolving structurally and visually over the next five to
+                ten years?</span>
+              <span class="q-takeaway">More people will publish AI-built sites, and it will be easy to tell.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>Visual presentation of websites should improve in the future as students, businesses, schools, and more
+              people are exposed to AI tools that can create complex prototypes of websites. On Facebook, I've seen a
+              lot of schools and companies already integrating them in making announcements on posters, and while they
+              use the same formatting and fonts that AI loves reusing, it gets the message across, and more people will
+              inevitably use AI to create and publish websites. It may also be very noticeable to tell. Newer startups
+              that I've seen utilize the same type of style that consists of rounded corners and minimalistic layouts;
+              these are features that I expect to be more popular in the next few years.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q6">
+        <details>
+          <summary>
+            <span class="q-num">06</span>
+            <span class="q-body">
+              <span class="q-question">Do you believe AI has the potential to completely replace human web
+                designers?</span>
+              <span class="q-takeaway">For now, a supplementary tool, but the risk is real if the industry stops valuing
+                creativity.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>For now, I view it as a supplementary tool. It's a saturated market for web designers right now. It makes
+              things even riskier for designers or aspiring designers if companies and consumers do not value the
+              importance of creativity and visual principles in society. It definitely has the potential to completely
+              replace human designers, but some of us aren't completely satisfied with the results they are giving us as
+              of right now, and limit it as a supplementary tool.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa-block" id="q7">
+        <details>
+          <summary>
+            <span class="q-num">07</span>
+            <span class="q-body">
+              <span class="q-question">What is the most significant challenge when integrating AI-generated elements
+                into visual design?</span>
+              <span class="q-takeaway">When everything blends together, the digital environment risks becoming
+                mundane.</span>
+            </span>
+            <svg class="q-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="answer-body">
+            <p>The reduction in creativity is a large ethical challenge when integrating elements generated by AI into
+              the visual design of a website. Even in bigger websites, such as Instagram or YouTube, a lot of the
+              features are blending together with the rise in reels and shorts. All these websites have already been
+              affected by corporations rushing to use the latest technology. With AI and the simplification of many
+              design features, the digital environment can look more mundane in the future than it does now.</p>
+          </div>
+        </details>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>

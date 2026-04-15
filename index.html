@@ -312,6 +312,36 @@
                 opacity: 0;
             }
         }
+
+        .quote-block {
+            margin: 24px 0;
+            padding: 14px;
+            border: 1px solid var(--grey);
+            border-left: 2px solid var(--lime-dim);
+            background: var(--lime-faint);
+            opacity: 0;
+            animation: appear 0.4s 1.8s ease forwards;
+        }
+
+        .quote-label {
+            font-size: 0.72rem;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .quote-text {
+            font-size: 0.95rem;
+            color: var(--lime);
+            line-height: 1.6;
+            text-shadow: 0 0 6px var(--lime-glow);
+        }
+
+        .quote-meta {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: var(--lime-dim);
+        }
     </style>
 </head>
 
@@ -331,7 +361,11 @@
                 ls - la &nbsp;<span class="cursor"></span>
             </div>
         </header>
-
+        <div class="quote-block">
+            <span class="quote-label">MCU_QUOTE.exe</span>
+            <p class="quote-text" id="quote-text"></p>
+            <p class="quote-meta" id="quote-meta"></p>
+        </div>
         <hr class="divider">
 
         <section>
@@ -365,6 +399,24 @@
             <span>[q] quit &nbsp;[h] help</span>
         </footer>
     </div>
+    <script>
+        const quotes = [
+            { text: "Part of the journey is the end.", author: "Tony Stark", film: "Avengers: Endgame" },
+            { text: "I am Iron Man.", author: "Tony Stark", film: "Iron Man" },
+            { text: "I can do this all day.", author: "Steve Rogers", film: "The First Avenger" },
+            { text: "What is grief, if not love persevering?", author: "Vision", film: "WandaVision" },
+            { text: "Dread it. Run from it. Destiny arrives all the same.", author: "Thanos", film: "Infinity War" },
+            { text: "Avengers… assemble.", author: "Steve Rogers", film: "Endgame" },
+        ];
+
+        function showRandomQuote() {
+            const q = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote-text").textContent = `"${q.text}"`;
+            document.getElementById("quote-meta").textContent = `— ${q.author} · ${q.film}`;
+        }
+
+        showRandomQuote();
+    </script>
 </body>
 
 </html>

@@ -84,6 +84,58 @@
             font-size: 14px;
             color: #333;
             border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .start-intro {
+            padding: 20px 40px 10px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.75;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .start-cities {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px 24px;
+            flex-wrap: wrap;
+        }
+
+        .city-chip {
+            color: white;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .city-chip-nyc {
+            background: #2B4590;
+        }
+
+        .city-chip-mex {
+            background: #C0431F;
+        }
+
+        .city-chip-joh {
+            background: #b81075;
+        }
+
+        .city-chip-sha {
+            background: #7c3aed;
+        }
+
+        .city-chip-lon {
+            background: #5a8000;
+        }
+
+        .city-chip-ber {
+            background: #166534;
         }
 
         .start-subtitle em {
@@ -117,7 +169,7 @@
         }
 
         .stat-item {
-            text-align: left;
+            text-align: center;
         }
 
         .stat-pct {
@@ -712,14 +764,14 @@
         /* index page */
         #index-page {
             min-height: 100vh;
-            background: #888;
+            background: #1a1a1a;
             display: flex;
             flex-direction: column;
         }
 
         .index-container {
             width: 100%;
-            background: var(--gray-bg);
+            background: #1a1a1a;
             overflow: hidden;
             flex: 1;
             display: flex;
@@ -727,7 +779,7 @@
         }
 
         .index-header {
-            background: #555;
+            background: #111;
             padding: 14px 20px;
             display: flex;
             align-items: center;
@@ -778,6 +830,14 @@
             border-radius: 8px;
             padding: 14px 12px;
             color: white;
+        }
+
+        /* Dark text on light-colored city cells (WCAG contrast) */
+        .index-cell[data-city="joh"],
+        .index-cell[data-city="sha"],
+        .index-cell[data-city="lon"],
+        .index-cell[data-city="ber"] {
+            color: #111;
         }
 
         .index-cell .cell-label {
@@ -834,6 +894,99 @@
             cursor: pointer;
         }
 
+        /* --- Small tablet / large phone (≤ 640px) --- */
+        @media (max-width: 640px) {
+
+            .start-header h1,
+            .map-header h1,
+            .city-header h1,
+            .index-header h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .start-stats {
+                grid-template-columns: 1fr;
+                padding: 16px 24px;
+                gap: 20px;
+            }
+
+            .stat-pct {
+                font-size: 52px;
+            }
+
+            .start-intro {
+                padding: 16px 20px 8px;
+            }
+
+            .city-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .city-cards-bg {
+                padding: 16px;
+            }
+
+            .index-city-names,
+            .index-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .index-body {
+                padding: 16px;
+            }
+
+            .start-cityscape {
+                height: 170px;
+            }
+
+            .modal {
+                padding: 20px;
+            }
+
+            .map-spacer {
+                width: 40px;
+            }
+        }
+
+        /* --- Small phone (≤ 420px) --- */
+        @media (max-width: 420px) {
+
+            .start-header h1,
+            .map-header h1,
+            .city-header h1,
+            .index-header h1 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .index-cell .cell-value {
+                font-size: 20px;
+            }
+
+            .index-city-name {
+                font-size: 14px;
+            }
+
+            .map-header,
+            .city-header,
+            .index-header {
+                padding: 10px 12px;
+            }
+
+            .city-cards-bg {
+                padding: 12px;
+            }
+
+            .start-cityscape {
+                height: 140px;
+            }
+
+            .modal {
+                padding: 16px;
+            }
+        }
+
         .map-city text {
             transition: fill 0.15s;
         }
@@ -881,83 +1034,149 @@
                 A Visual Translation of <em>The Endless City</em>, edited by Ricky Burdett and Deyan Sudjic (Phaidon
                 Press, 2008)
             </div>
+            <div class="start-intro">
+                Six megacities. One shared story. Explore how New York, Mexico City, Johannesburg, Shanghai, London,
+                and Berlin grew, transformed, and struggled at the turn of the 21st century — through data,
+                photography, and urban form.
+            </div>
             <div class="start-cityscape">
-                <!-- Inline SVG Cityscape -->
+                <!-- Night cityscape: six city color zones -->
                 <svg class="cityscape-svg" viewBox="0 0 780 220" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#e0e0e0" />
-                            <stop offset="100%" stop-color="#c8c8c8" />
+                            <stop offset="0%" stop-color="#060d18" />
+                            <stop offset="55%" stop-color="#112240" />
+                            <stop offset="100%" stop-color="#1e3a5f" />
                         </linearGradient>
                     </defs>
                     <rect width="780" height="220" fill="url(#skyGrad)" />
-                    <!-- Buildings back layer (lighter) -->
-                    <g fill="#d0d0d0" opacity="0.6">
-                        <rect x="60" y="80" width="30" height="140" />
-                        <rect x="95" y="60" width="25" height="160" />
-                        <rect x="125" y="90" width="40" height="130" />
-                        <rect x="170" y="50" width="20" height="170" />
-                        <rect x="195" y="70" width="35" height="150" />
-                        <rect x="235" y="40" width="22" height="180" />
-                        <rect x="262" y="65" width="28" height="155" />
-                        <rect x="295" y="30" width="18" height="190" />
-                        <rect x="318" y="55" width="30" height="165" />
-                        <rect x="353" y="45" width="25" height="175" />
-                        <rect x="383" y="75" width="32" height="145" />
-                        <rect x="420" y="35" width="20" height="185" />
-                        <rect x="445" y="60" width="28" height="160" />
-                        <rect x="478" y="80" width="35" height="140" />
-                        <rect x="518" y="50" width="22" height="170" />
-                        <rect x="545" y="70" width="30" height="150" />
-                        <rect x="580" y="40" width="25" height="180" />
-                        <rect x="610" y="65" width="35" height="155" />
-                        <rect x="650" y="55" width="20" height="165" />
-                        <rect x="675" y="80" width="28" height="140" />
-                        <rect x="708" y="45" width="32" height="175" />
+                    <!-- Stars -->
+                    <g fill="white" opacity="0.55">
+                        <circle cx="48" cy="18" r="1.2" />
+                        <circle cx="118" cy="9" r="0.9" />
+                        <circle cx="198" cy="14" r="1.2" />
+                        <circle cx="308" cy="7" r="0.9" />
+                        <circle cx="378" cy="20" r="1.5" />
+                        <circle cx="458" cy="11" r="0.9" />
+                        <circle cx="548" cy="5" r="1.2" />
+                        <circle cx="638" cy="19" r="0.9" />
+                        <circle cx="718" cy="9" r="1.5" />
+                        <circle cx="83" cy="38" r="0.9" />
+                        <circle cx="173" cy="33" r="1.2" />
+                        <circle cx="258" cy="27" r="0.9" />
+                        <circle cx="428" cy="33" r="0.9" />
+                        <circle cx="518" cy="23" r="1.2" />
+                        <circle cx="688" cy="30" r="0.9" />
+                        <circle cx="155" cy="8" r="1" />
+                        <circle cx="505" cy="38" r="1" />
+                        <circle cx="750" cy="22" r="1.2" />
                     </g>
-                    <!-- Buildings front layer (darker) -->
-                    <g fill="#b8b8b8" opacity="0.8">
-                        <rect x="40" y="110" width="45" height="110" />
-                        <rect x="90" y="95" width="35" height="125" />
-                        <rect x="130" y="130" width="50" height="90" />
-                        <rect x="185" y="100" width="30" height="120" />
-                        <rect x="220" y="85" width="40" height="135" />
-                        <rect x="265" y="115" width="38" height="105" />
-                        <rect x="308" y="90" width="28" height="130" />
-                        <rect x="341" y="105" width="42" height="115" />
-                        <rect x="388" y="125" width="35" height="95" />
-                        <rect x="428" y="95" width="30" height="125" />
-                        <rect x="463" y="110" width="44" height="110" />
-                        <rect x="512" y="85" width="32" height="135" />
-                        <rect x="549" y="100" width="40" height="120" />
-                        <rect x="594" y="120" width="36" height="100" />
-                        <rect x="635" y="90" width="28" height="130" />
-                        <rect x="668" y="105" width="46" height="115" />
-                        <rect x="719" y="95" width="34" height="125" />
+                    <!-- NYC zone – blue back layer -->
+                    <g fill="#2B4590" opacity="0.8">
+                        <rect x="28" y="58" width="20" height="162" />
+                        <rect x="52" y="38" width="16" height="182" />
+                        <rect x="72" y="68" width="26" height="152" />
+                        <rect x="102" y="28" width="14" height="192" />
+                        <rect x="120" y="48" width="20" height="172" />
                     </g>
-                    <!-- Windows -->
-                    <g fill="white" opacity="0.3">
-                        <rect x="98" y="70" width="4" height="4" />
-                        <rect x="105" y="70" width="4" height="4" />
-                        <rect x="98" y="80" width="4" height="4" />
-                        <rect x="105" y="80" width="4" height="4" />
-                        <rect x="240" y="50" width="4" height="4" />
-                        <rect x="247" y="50" width="4" height="4" />
-                        <rect x="240" y="60" width="4" height="4" />
-                        <rect x="247" y="60" width="4" height="4" />
-                        <rect x="300" y="40" width="3" height="4" />
-                        <rect x="300" y="50" width="3" height="4" />
-                        <rect x="425" y="45" width="4" height="4" />
-                        <rect x="432" y="45" width="4" height="4" />
-                        <rect x="425" y="55" width="4" height="4" />
-                        <rect x="432" y="55" width="4" height="4" />
-                        <rect x="584" y="50" width="4" height="4" />
-                        <rect x="591" y="50" width="4" height="4" />
-                        <rect x="584" y="60" width="4" height="4" />
-                        <rect x="591" y="60" width="4" height="4" />
+                    <!-- MEX zone – red back layer -->
+                    <g fill="#C0431F" opacity="0.8">
+                        <rect x="155" y="52" width="18" height="168" />
+                        <rect x="178" y="32" width="22" height="188" />
+                        <rect x="204" y="62" width="16" height="158" />
+                        <rect x="225" y="42" width="20" height="178" />
+                    </g>
+                    <!-- JOH zone – pink back layer -->
+                    <g fill="#b81075" opacity="0.8">
+                        <rect x="258" y="48" width="18" height="172" />
+                        <rect x="280" y="28" width="14" height="192" />
+                        <rect x="298" y="58" width="22" height="162" />
+                        <rect x="325" y="38" width="16" height="182" />
+                    </g>
+                    <!-- SHA zone – purple back layer -->
+                    <g fill="#7c3aed" opacity="0.8">
+                        <rect x="358" y="35" width="20" height="185" />
+                        <rect x="382" y="52" width="16" height="168" />
+                        <rect x="402" y="25" width="22" height="195" />
+                        <rect x="428" y="48" width="18" height="172" />
+                    </g>
+                    <!-- LON zone – dark lime back layer -->
+                    <g fill="#5a8000" opacity="0.85">
+                        <rect x="460" y="55" width="20" height="165" />
+                        <rect x="484" y="32" width="16" height="188" />
+                        <rect x="504" y="45" width="22" height="175" />
+                        <rect x="530" y="62" width="16" height="158" />
+                    </g>
+                    <!-- BER zone – green back layer -->
+                    <g fill="#166534" opacity="0.85">
+                        <rect x="558" y="42" width="20" height="178" />
+                        <rect x="582" y="25" width="16" height="195" />
+                        <rect x="602" y="55" width="22" height="165" />
+                        <rect x="628" y="35" width="18" height="185" />
+                        <rect x="650" y="52" width="20" height="168" />
+                    </g>
+                    <!-- Front silhouette layer (all cities) -->
+                    <g fill="#060d18" opacity="0.92">
+                        <rect x="18" y="98" width="38" height="122" />
+                        <rect x="60" y="82" width="30" height="138" />
+                        <rect x="94" y="112" width="42" height="108" />
+                        <rect x="142" y="88" width="26" height="132" />
+                        <rect x="172" y="73" width="34" height="147" />
+                        <rect x="210" y="106" width="32" height="114" />
+                        <rect x="248" y="80" width="24" height="140" />
+                        <rect x="276" y="95" width="36" height="125" />
+                        <rect x="316" y="116" width="30" height="104" />
+                        <rect x="350" y="86" width="26" height="134" />
+                        <rect x="380" y="101" width="38" height="119" />
+                        <rect x="422" y="76" width="28" height="144" />
+                        <rect x="454" y="93" width="36" height="127" />
+                        <rect x="494" y="110" width="30" height="110" />
+                        <rect x="528" y="80" width="24" height="140" />
+                        <rect x="556" y="95" width="38" height="125" />
+                        <rect x="598" y="70" width="26" height="150" />
+                        <rect x="628" y="88" width="40" height="132" />
+                        <rect x="672" y="103" width="32" height="117" />
+                        <rect x="708" y="85" width="28" height="135" />
+                        <rect x="740" y="98" width="36" height="122" />
+                    </g>
+                    <!-- Glowing windows -->
+                    <g fill="#ffd060" opacity="0.75">
+                        <rect x="66" y="92" width="4" height="4" />
+                        <rect x="74" y="92" width="4" height="4" />
+                        <rect x="66" y="101" width="4" height="4" />
+                        <rect x="74" y="101" width="4" height="4" />
+                        <rect x="66" y="110" width="4" height="4" />
+                        <rect x="182" y="82" width="4" height="4" />
+                        <rect x="190" y="82" width="4" height="4" />
+                        <rect x="182" y="91" width="4" height="4" />
+                        <rect x="190" y="91" width="4" height="4" />
+                        <rect x="286" y="103" width="4" height="4" />
+                        <rect x="294" y="103" width="4" height="4" />
+                        <rect x="286" y="112" width="4" height="4" />
+                        <rect x="390" y="110" width="4" height="4" />
+                        <rect x="398" y="110" width="4" height="4" />
+                        <rect x="390" y="119" width="4" height="4" />
+                        <rect x="398" y="119" width="4" height="4" />
+                        <rect x="464" y="101" width="4" height="4" />
+                        <rect x="472" y="101" width="4" height="4" />
+                        <rect x="464" y="110" width="4" height="4" />
+                        <rect x="566" y="104" width="4" height="4" />
+                        <rect x="574" y="104" width="4" height="4" />
+                        <rect x="566" y="113" width="4" height="4" />
+                        <rect x="638" y="97" width="4" height="4" />
+                        <rect x="646" y="97" width="4" height="4" />
+                        <rect x="638" y="106" width="4" height="4" />
+                        <rect x="646" y="106" width="4" height="4" />
                     </g>
                     <!-- Ground line -->
-                    <rect x="0" y="218" width="780" height="2" fill="#aaa" />
+                    <rect x="0" y="218" width="780" height="2" fill="#091524" />
+                    <!-- City color band at bottom -->
+                    <rect x="0" y="215" width="130" height="3" fill="#2B4590" opacity="0.9" />
+                    <rect x="130" y="215" width="130" height="3" fill="#C0431F" opacity="0.9" />
+                    <rect x="260" y="215" width="130" height="3" fill="#F01899" opacity="0.9" />
+                    <rect x="390" y="215" width="130" height="3" fill="#8B5CF6" opacity="0.9" />
+                    <rect x="520" y="215" width="130" height="3" fill="#BADA55" opacity="0.9" />
+                    <rect x="650" y="215" width="130" height="3" fill="#22C55E" opacity="0.9" />
                 </svg>
             </div>
             <div class="start-stats">
@@ -973,6 +1192,14 @@
                     <div class="stat-pct">75%</div>
                     <div class="stat-desc">will be living in cities in 2050</div>
                 </div>
+            </div>
+            <div class="start-cities">
+                <span class="city-chip city-chip-nyc">New York City</span>
+                <span class="city-chip city-chip-mex">Mexico City</span>
+                <span class="city-chip city-chip-joh">Johannesburg</span>
+                <span class="city-chip city-chip-sha">Shanghai</span>
+                <span class="city-chip city-chip-lon">London</span>
+                <span class="city-chip city-chip-ber">Berlin</span>
             </div>
             <div class="start-explore-wrap">
                 <button type="button" class="btn btn-dark" onclick="showPage('map-page')">Explore</button>

@@ -839,7 +839,8 @@
 
         /* index page */
         #index-page {
-            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
             background: #1a1a1a;
             display: flex;
             flex-direction: column;
@@ -852,6 +853,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            min-height: 0;
         }
 
         .index-header {
@@ -860,6 +862,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-shrink: 0;
         }
 
         .index-header h1 {
@@ -872,15 +875,20 @@
         }
 
         .index-body {
-            padding: 24px;
+            padding: 20px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
         }
 
         .index-city-names {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 10px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             padding: 0 4px;
+            flex-shrink: 0;
         }
 
         .index-city-name {
@@ -901,26 +909,37 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            flex: 1;
+            min-height: 0;
         }
 
         .index-row {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 10px;
+            flex: 1;
+            min-height: 0;
         }
 
         .index-cell {
-            border-radius: 8px;
-            padding: 14px 12px;
+            border-radius: 10px;
+            padding: 12px 14px;
             color: white;
             transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
             cursor: default;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-top: 3px solid rgba(255, 255, 255, 0.25);
+            box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
         }
 
         .index-cell:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
             filter: brightness(1.12);
             z-index: 2;
         }
@@ -931,18 +950,30 @@
         .index-cell[data-city="lon"],
         .index-cell[data-city="ber"] {
             color: #111;
+            border-top-color: rgba(0, 0, 0, 0.15);
+            box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.1);
         }
 
         .index-cell .cell-label {
-            font-size: 11px;
-            font-weight: 600;
-            opacity: 0.85;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            opacity: 0.75;
             margin-bottom: 6px;
+        }
+
+        .index-cell .cell-divider {
+            width: 28px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.3;
+            margin: 0 auto 6px;
         }
 
         .index-cell .cell-value {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 26px;
+            font-size: 30px;
             letter-spacing: 1px;
             line-height: 1;
         }
@@ -2796,135 +2827,135 @@
                     <div class="index-row">
                         <div class="index-cell" data-city="nyc">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">7.96M</div>
+                            <div class="cell-divider"></div><div class="cell-value">7.96M</div>
                         </div>
                         <div class="index-cell" data-city="mex">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">8.3 M</div>
+                            <div class="cell-divider"></div><div class="cell-value">18.9 M</div>
                         </div>
                         <div class="index-cell" data-city="joh">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">8.3 M</div>
+                            <div class="cell-divider"></div><div class="cell-value">3.23 M</div>
                         </div>
                         <div class="index-cell" data-city="sha">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">8.3 M</div>
+                            <div class="cell-divider"></div><div class="cell-value">16.61 M</div>
                         </div>
                         <div class="index-cell" data-city="lon">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">8.3 M</div>
+                            <div class="cell-divider"></div><div class="cell-value">7.54 M</div>
                         </div>
                         <div class="index-cell" data-city="ber">
                             <div class="cell-label">Population:</div>
-                            <div class="cell-value">8.3 M</div>
+                            <div class="cell-divider"></div><div class="cell-value">3.4 M</div>
                         </div>
                     </div>
                     <!-- Row: GDP -->
                     <div class="index-row">
                         <div class="index-cell" data-city="nyc">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$58,700</div>
                         </div>
                         <div class="index-cell" data-city="mex">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$16,400</div>
                         </div>
                         <div class="index-cell" data-city="joh">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$5,100</div>
                         </div>
                         <div class="index-cell" data-city="sha">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$6,900</div>
                         </div>
                         <div class="index-cell" data-city="lon">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$38,400</div>
                         </div>
                         <div class="index-cell" data-city="ber">
                             <div class="cell-label">GDP (USD)</div>
-                            <div class="cell-value">$1.1 T</div>
+                            <div class="cell-divider"></div><div class="cell-value">$28,300</div>
                         </div>
                     </div>
-                    <!-- Row: Green Open Space -->
+                    <!-- Row: Housing -->
                     <div class="index-row">
                         <div class="index-cell" data-city="nyc">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$2,500</div>
                         </div>
                         <div class="index-cell" data-city="mex">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$810</div>
                         </div>
                         <div class="index-cell" data-city="joh">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$640</div>
                         </div>
                         <div class="index-cell" data-city="sha">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$360</div>
                         </div>
                         <div class="index-cell" data-city="lon">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$2,390</div>
                         </div>
                         <div class="index-cell" data-city="ber">
-                            <div class="cell-label">Green Open Space (%)</div>
-                            <div class="cell-value">14%</div>
+                            <div class="cell-label">Average Rent Per Month</div>
+                            <div class="cell-divider"></div><div class="cell-value">$750</div>
                         </div>
                     </div>
                     <!-- Row: Public Transport Use -->
                     <div class="index-row">
                         <div class="index-cell" data-city="nyc">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">55%</div>
                         </div>
                         <div class="index-cell" data-city="mex">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">78%</div>
                         </div>
                         <div class="index-cell" data-city="joh">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">33%</div>
                         </div>
                         <div class="index-cell" data-city="sha">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">24%</div>
                         </div>
                         <div class="index-cell" data-city="lon">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">38%</div>
                         </div>
                         <div class="index-cell" data-city="ber">
                             <div class="cell-label">Public Transport Use</div>
-                            <div class="cell-value">55%</div>
+                            <div class="cell-divider"></div><div class="cell-value">27%</div>
                         </div>
                     </div>
-                    <!-- Row: Carbon Emissions -->
+                    <!-- Average Age -->
                     <div class="index-row">
                         <div class="index-cell" data-city="nyc">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">35.8</div>
                         </div>
                         <div class="index-cell" data-city="mex">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">29</div>
                         </div>
                         <div class="index-cell" data-city="joh">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">29.1</div>
                         </div>
                         <div class="index-cell" data-city="sha">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">37.7</div>
                         </div>
                         <div class="index-cell" data-city="lon">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">36.5</div>
                         </div>
                         <div class="index-cell" data-city="ber">
-                            <div class="cell-label">Carbon Emissions Per Capita</div>
-                            <div class="cell-value">7.1</div>
+                            <div class="cell-label">Average Age</div>
+                            <div class="cell-divider"></div><div class="cell-value">42.2</div>
                         </div>
                     </div>
                 </div>

@@ -164,32 +164,42 @@
         .start-stats {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            padding: 30px 40px 10px;
-            gap: 10px;
+            padding: 52px 48px 40px;
+            gap: 0;
+            flex: 1;
+            align-items: center;
         }
 
         .stat-item {
             text-align: center;
+            padding: 0 16px;
+            border-right: 1px solid #e8e8e8;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
         }
 
         .stat-pct {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
-            color: #444;
+            font-size: 100px;
+            color: #222;
             line-height: 1;
         }
 
         .stat-desc {
             font-size: 13px;
-            font-weight: 600;
-            color: #333;
-            margin-top: 6px;
-            line-height: 1.3;
+            font-weight: 500;
+            color: #777;
+            margin-top: 8px;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .start-explore-wrap {
             text-align: center;
-            padding: 20px 0 30px;
+            padding: 24px 0 36px;
         }
 
         /* buttons */
@@ -600,34 +610,82 @@
 
         .modal-close {
             position: absolute;
-            top: 16px;
-            right: 20px;
+            top: 14px;
+            right: 18px;
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 20px;
             cursor: pointer;
-            color: #666;
+            color: #aaa;
+            transition: color 0.15s;
         }
 
-        .modal-border-left {
-            border-left: 6px solid var(--city-color, #333);
-            padding-left: 20px;
+        .modal-close:hover {
+            color: #333;
+        }
+
+        /* Modal header: city tag + card type label */
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .modal-city-tag {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: var(--city-color, #333);
+            color: white;
+        }
+
+        .modal-city-tag-joh,
+        .modal-city-tag-sha,
+        .modal-city-tag-lon,
+        .modal-city-tag-ber {
+            color: #111;
+        }
+
+        .modal-card-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #aaa;
         }
 
         /* Highlighted Stats Modal */
+        .modal-stat-group {
+            text-align: center;
+            padding: 18px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .modal-stat-group:last-child {
+            border-bottom: none;
+        }
+
         .modal-stat-big {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
+            font-size: 80px;
             line-height: 1;
             color: var(--city-color, #333);
+            text-align: center;
         }
 
         .modal-stat-desc {
             font-size: 13px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 28px;
-            margin-top: 4px;
+            font-weight: 500;
+            color: #555;
+            margin-top: 6px;
+            line-height: 1.4;
+            text-align: center;
         }
 
         /* General Stats Modal */
@@ -638,19 +696,30 @@
         .stat-row {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 6px;
             font-size: 14px;
+            transition: background 0.12s;
+        }
+
+        .stat-row:nth-child(odd) {
+            background: #f8f8f8;
         }
 
         .stat-row .label {
-            font-weight: 600;
-            color: #111;
+            font-weight: 500;
+            color: #444;
         }
 
         .stat-row .val {
-            font-weight: 600;
-            color: var(--city-color, #333);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: white;
+            background: var(--city-color, #333);
+            padding: 2px 10px;
+            border-radius: 20px;
         }
 
         /* Economy Breakdown */
@@ -662,18 +731,25 @@
         /* Quote Modal */
         .quote-mark {
             font-family: 'DM Serif Display', serif;
-            font-size: 64px;
-            line-height: 0.5;
+            font-size: 72px;
+            line-height: 0.4;
             color: var(--city-color, #333);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             display: block;
+            text-align: center;
+        }
+
+        .quote-body {
+            padding: 8px 16px;
         }
 
         .quote-text {
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.7;
-            color: #111;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.8;
+            color: #222;
+            text-align: center;
         }
 
         .quote-close {
@@ -812,6 +888,13 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
             letter-spacing: 1px;
+            transition: opacity 0.2s, transform 0.2s;
+            cursor: default;
+        }
+
+        .index-city-name:hover {
+            opacity: 0.7;
+            transform: translateY(-1px);
         }
 
         .index-rows {
@@ -830,6 +913,16 @@
             border-radius: 8px;
             padding: 14px 12px;
             color: white;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+            cursor: default;
+            position: relative;
+        }
+
+        .index-cell:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            filter: brightness(1.12);
+            z-index: 2;
         }
 
         /* Dark text on light-colored city cells (WCAG contrast) */
@@ -1033,151 +1126,6 @@
             <div class="start-subtitle">
                 A Visual Translation of <em>The Endless City</em>, edited by Ricky Burdett and Deyan Sudjic (Phaidon
                 Press, 2008)
-            </div>
-            <div class="start-intro">
-                Six megacities. One shared story. Explore how New York, Mexico City, Johannesburg, Shanghai, London,
-                and Berlin grew, transformed, and struggled at the turn of the 21st century — through data,
-                photography, and urban form.
-            </div>
-            <div class="start-cityscape">
-                <!-- Night cityscape: six city color zones -->
-                <svg class="cityscape-svg" viewBox="0 0 780 220" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#060d18" />
-                            <stop offset="55%" stop-color="#112240" />
-                            <stop offset="100%" stop-color="#1e3a5f" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="780" height="220" fill="url(#skyGrad)" />
-                    <!-- Stars -->
-                    <g fill="white" opacity="0.55">
-                        <circle cx="48" cy="18" r="1.2" />
-                        <circle cx="118" cy="9" r="0.9" />
-                        <circle cx="198" cy="14" r="1.2" />
-                        <circle cx="308" cy="7" r="0.9" />
-                        <circle cx="378" cy="20" r="1.5" />
-                        <circle cx="458" cy="11" r="0.9" />
-                        <circle cx="548" cy="5" r="1.2" />
-                        <circle cx="638" cy="19" r="0.9" />
-                        <circle cx="718" cy="9" r="1.5" />
-                        <circle cx="83" cy="38" r="0.9" />
-                        <circle cx="173" cy="33" r="1.2" />
-                        <circle cx="258" cy="27" r="0.9" />
-                        <circle cx="428" cy="33" r="0.9" />
-                        <circle cx="518" cy="23" r="1.2" />
-                        <circle cx="688" cy="30" r="0.9" />
-                        <circle cx="155" cy="8" r="1" />
-                        <circle cx="505" cy="38" r="1" />
-                        <circle cx="750" cy="22" r="1.2" />
-                    </g>
-                    <!-- NYC zone – blue back layer -->
-                    <g fill="#2B4590" opacity="0.8">
-                        <rect x="28" y="58" width="20" height="162" />
-                        <rect x="52" y="38" width="16" height="182" />
-                        <rect x="72" y="68" width="26" height="152" />
-                        <rect x="102" y="28" width="14" height="192" />
-                        <rect x="120" y="48" width="20" height="172" />
-                    </g>
-                    <!-- MEX zone – red back layer -->
-                    <g fill="#C0431F" opacity="0.8">
-                        <rect x="155" y="52" width="18" height="168" />
-                        <rect x="178" y="32" width="22" height="188" />
-                        <rect x="204" y="62" width="16" height="158" />
-                        <rect x="225" y="42" width="20" height="178" />
-                    </g>
-                    <!-- JOH zone – pink back layer -->
-                    <g fill="#b81075" opacity="0.8">
-                        <rect x="258" y="48" width="18" height="172" />
-                        <rect x="280" y="28" width="14" height="192" />
-                        <rect x="298" y="58" width="22" height="162" />
-                        <rect x="325" y="38" width="16" height="182" />
-                    </g>
-                    <!-- SHA zone – purple back layer -->
-                    <g fill="#7c3aed" opacity="0.8">
-                        <rect x="358" y="35" width="20" height="185" />
-                        <rect x="382" y="52" width="16" height="168" />
-                        <rect x="402" y="25" width="22" height="195" />
-                        <rect x="428" y="48" width="18" height="172" />
-                    </g>
-                    <!-- LON zone – dark lime back layer -->
-                    <g fill="#5a8000" opacity="0.85">
-                        <rect x="460" y="55" width="20" height="165" />
-                        <rect x="484" y="32" width="16" height="188" />
-                        <rect x="504" y="45" width="22" height="175" />
-                        <rect x="530" y="62" width="16" height="158" />
-                    </g>
-                    <!-- BER zone – green back layer -->
-                    <g fill="#166534" opacity="0.85">
-                        <rect x="558" y="42" width="20" height="178" />
-                        <rect x="582" y="25" width="16" height="195" />
-                        <rect x="602" y="55" width="22" height="165" />
-                        <rect x="628" y="35" width="18" height="185" />
-                        <rect x="650" y="52" width="20" height="168" />
-                    </g>
-                    <!-- Front silhouette layer (all cities) -->
-                    <g fill="#060d18" opacity="0.92">
-                        <rect x="18" y="98" width="38" height="122" />
-                        <rect x="60" y="82" width="30" height="138" />
-                        <rect x="94" y="112" width="42" height="108" />
-                        <rect x="142" y="88" width="26" height="132" />
-                        <rect x="172" y="73" width="34" height="147" />
-                        <rect x="210" y="106" width="32" height="114" />
-                        <rect x="248" y="80" width="24" height="140" />
-                        <rect x="276" y="95" width="36" height="125" />
-                        <rect x="316" y="116" width="30" height="104" />
-                        <rect x="350" y="86" width="26" height="134" />
-                        <rect x="380" y="101" width="38" height="119" />
-                        <rect x="422" y="76" width="28" height="144" />
-                        <rect x="454" y="93" width="36" height="127" />
-                        <rect x="494" y="110" width="30" height="110" />
-                        <rect x="528" y="80" width="24" height="140" />
-                        <rect x="556" y="95" width="38" height="125" />
-                        <rect x="598" y="70" width="26" height="150" />
-                        <rect x="628" y="88" width="40" height="132" />
-                        <rect x="672" y="103" width="32" height="117" />
-                        <rect x="708" y="85" width="28" height="135" />
-                        <rect x="740" y="98" width="36" height="122" />
-                    </g>
-                    <!-- Glowing windows -->
-                    <g fill="#ffd060" opacity="0.75">
-                        <rect x="66" y="92" width="4" height="4" />
-                        <rect x="74" y="92" width="4" height="4" />
-                        <rect x="66" y="101" width="4" height="4" />
-                        <rect x="74" y="101" width="4" height="4" />
-                        <rect x="66" y="110" width="4" height="4" />
-                        <rect x="182" y="82" width="4" height="4" />
-                        <rect x="190" y="82" width="4" height="4" />
-                        <rect x="182" y="91" width="4" height="4" />
-                        <rect x="190" y="91" width="4" height="4" />
-                        <rect x="286" y="103" width="4" height="4" />
-                        <rect x="294" y="103" width="4" height="4" />
-                        <rect x="286" y="112" width="4" height="4" />
-                        <rect x="390" y="110" width="4" height="4" />
-                        <rect x="398" y="110" width="4" height="4" />
-                        <rect x="390" y="119" width="4" height="4" />
-                        <rect x="398" y="119" width="4" height="4" />
-                        <rect x="464" y="101" width="4" height="4" />
-                        <rect x="472" y="101" width="4" height="4" />
-                        <rect x="464" y="110" width="4" height="4" />
-                        <rect x="566" y="104" width="4" height="4" />
-                        <rect x="574" y="104" width="4" height="4" />
-                        <rect x="566" y="113" width="4" height="4" />
-                        <rect x="638" y="97" width="4" height="4" />
-                        <rect x="646" y="97" width="4" height="4" />
-                        <rect x="638" y="106" width="4" height="4" />
-                        <rect x="646" y="106" width="4" height="4" />
-                    </g>
-                    <!-- Ground line -->
-                    <rect x="0" y="218" width="780" height="2" fill="#091524" />
-                    <!-- City color band at bottom -->
-                    <rect x="0" y="215" width="130" height="3" fill="#2B4590" opacity="0.9" />
-                    <rect x="130" y="215" width="130" height="3" fill="#C0431F" opacity="0.9" />
-                    <rect x="260" y="215" width="130" height="3" fill="#F01899" opacity="0.9" />
-                    <rect x="390" y="215" width="130" height="3" fill="#8B5CF6" opacity="0.9" />
-                    <rect x="520" y="215" width="130" height="3" fill="#BADA55" opacity="0.9" />
-                    <rect x="650" y="215" width="130" height="3" fill="#22C55E" opacity="0.9" />
-                </svg>
             </div>
             <div class="start-stats">
                 <div class="stat-item">
@@ -3262,68 +3210,71 @@
             const backdrop = document.getElementById('modal-backdrop');
             const body = document.getElementById('modal-body');
 
-            let html = '';
+            const cardLabel = CARD_TYPES.find(c => c.id === cardType)?.label ?? '';
+            const lightCities = ['joh', 'sha', 'lon', 'ber'];
+            const tagExtraClass = lightCities.includes(cityId) ? ` modal-city-tag-${cityId}` : '';
+            const header = `<div class="modal-header city-theme-${cityId}">
+                <span class="modal-city-tag${tagExtraClass}">${city.name}</span>
+                <span class="modal-card-label">${cardLabel}</span>
+            </div>`;
+
+            let html = header;
 
             if (cardType === 'highlighted') {
-                html = `<div class="modal-border-left city-theme-${cityId}">`;
+                html += `<div class="city-theme-${cityId}">`;
                 city.highlightedStats.forEach(s => {
-                    html += `
-                <div class="modal-stat-big">${s.val}</div>
-        <div class="modal-stat-desc">${s.desc}</div>
-      `;
+                    html += `<div class="modal-stat-group">
+                        <div class="modal-stat-big">${s.val}</div>
+                        <div class="modal-stat-desc">${s.desc}</div>
+                    </div>`;
                 });
                 html += `</div>`;
 
             } else if (cardType === 'general') {
-                html = `<div class="modal-border-left city-theme-${cityId}">
-      <div class="stats-table">`;
+                html += `<div class="city-theme-${cityId}"><div class="stats-table">`;
                 city.generalStats.forEach(s => {
                     html += `<div class="stat-row">
-        <span class="label">${s.label}</span>
-                <span class="val">${s.val}</span>
-      </div>`;
+                        <span class="label">${s.label}</span>
+                        <span class="val">${s.val}</span>
+                    </div>`;
                 });
                 html += `</div></div>`;
 
             } else if (cardType === 'economy') {
-                html = `<div class="modal-border-left city-theme-${cityId}">
-      <img class="economy-img" src="${city.economyImg}" alt="${city.name} Economy Breakdown"/>
-    </div>`;
+                html += `<img class="economy-img" src="${city.economyImg}" alt="${city.name} Economy Breakdown"/>`;
 
             } else if (cardType === 'quote') {
-                html = `<div class="modal-border-left city-theme-${cityId}">
-            <span class="quote-mark">"</span>
-      <p class="quote-text">${city.quote}</p>
-            <span class="quote-close">"</span>
-    </div>`;
+                html += `<div class=”quote-body”>
+                    <span class=”quote-mark”>”</span>
+                    <p class=”quote-text”>${city.quote}</p>
+                    <span class=”quote-close”>”</span>
+                </div>`;
 
             } else if (cardType === 'mobility') {
-                html = `<div class="modal-border-left city-theme-${cityId}">
-      <img class="mobility-img" src="${city.mobilityImg}" alt="${city.name} Urban Mobility"/>
-    </div>`;
+                html += `<img class="mobility-img" src="${city.mobilityImg}" alt="${city.name} Urban Mobility"/>`;
 
             } else if (cardType === 'thenVsNow') {
                 const t = city.thenVsNow;
-                html = `<div class="city-theme-${cityId}">
-      <div class="tvn-grid">
-                <div class="tvn-card">
-                    <div class="tvn-year">2007</div>
-                    <div class="tvn-pop">${t.pop2007}</div>
-          <div class="tvn-label">${t.label}</div>
-        </div>
-        <div class="tvn-vs">VS.</div>
-                <div class="tvn-card">
-                    <div class="tvn-year">2025</div>
-                    <div class="tvn-pop">${t.pop2025}</div>
-          <div class="tvn-label">${t.label}</div>
-        </div>
-      </div>
-            <div class="tvn-divider"></div>
-      <div class="tvn-bottom">
-                <div class="tvn-pct">${t.pct}</div>
-        <div class="tvn-note">${t.note}</div>
-      </div>
-    </div>`;
+                html += `<div class="city-theme-${cityId}">
+                    <div class="tvn-grid">
+                        <div class="tvn-card">
+                            <div class="tvn-year">2007</div>
+                            <div class="tvn-pop">${t.pop2007}</div>
+                            <div class="tvn-label">${t.label}</div>
+                        </div>
+                        <div class="tvn-vs">VS.</div>
+                        <div class="tvn-card">
+                            <div class="tvn-year">2025</div>
+                            <div class="tvn-pop">${t.pop2025}</div>
+                            <div class="tvn-label">${t.label}</div>
+                        </div>
+                    </div>
+                    <div class="tvn-divider"></div>
+                    <div class="tvn-bottom">
+                        <div class="tvn-pct">${t.pct}</div>
+                        <div class="tvn-note">${t.note}</div>
+                    </div>
+                </div>`;
             }
 
             body.innerHTML = html;

@@ -4,20 +4,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Endless City — Standby</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --glow: #ff6b2b;
+            --glow-dim: rgba(255, 107, 43, 0.15);
+            --text-primary: rgba(255, 107, 43, 0.95);
+            --text-secondary: rgba(255, 107, 43, 0.45);
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: var(--text-primary);
+            font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* subtle ambient background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 30% 50%, rgba(255, 107, 43, 0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 75% 50%, rgba(255, 60, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .standby-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 48px 60px;
+            align-items: center;
+        }
+
+        /* clock */
+        .clock-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 40px;
+            border-right: 1px solid rgba(255, 107, 43, 0.1);
+        }
+
+        .clock-time {
+            font-size: clamp(80px, 14vw, 160px);
+            font-weight: 300;
+            letter-spacing: -4px;
+            line-height: 1;
+            text-shadow:
+                0 0 40px rgba(255, 107, 43, 0.6),
+                0 0 80px rgba(255, 107, 43, 0.25);
+        }
+
+        .clock-colon {
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        .clock-date {
+            margin-top: 18px;
+            font-size: clamp(18px, 2.5vw, 28px);
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 20px rgba(255, 107, 43, 0.3);
+        }
+
+        /* Figma Links */
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 48px;
+            gap: 32px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4vw, 44px);
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 107, 43, 0.3);
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 22px;
+            border: 1px solid rgba(255, 107, 43, 0.2);
+            border-radius: 18px;
+            background: rgba(255, 107, 43, 0.05);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: clamp(14px, 1.8vw, 18px);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: background 0.25s, border-color 0.25s, text-shadow 0.25s;
+            backdrop-filter: blur(8px);
+        }
+
+        li a::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--glow);
+            box-shadow: 0 0 8px var(--glow);
+            flex-shrink: 0;
+        }
+
+        li a:hover {
+            background: rgba(255, 107, 43, 0.12);
+            border-color: rgba(255, 107, 43, 0.5);
+            text-shadow: 0 0 12px rgba(255, 107, 43, 0.5);
+        }
+
+        /* Divider Line */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 107, 43, 0.3);
+        }
+
+        /* Charging Indicator */
+        .charging {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 107, 43, 0.3);
+            white-space: nowrap;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 640px),
+        (orientation: portrait) {
+
+            html,
+            body {
+                overflow-y: auto;
+                height: auto;
+                min-height: 100dvh;
+            }
+
+            body::before {
+                background:
+                    radial-gradient(ellipse 80% 40% at 50% 20%, rgba(255, 107, 43, 0.09) 0%, transparent 70%),
+                    radial-gradient(ellipse 60% 30% at 50% 75%, rgba(255, 60, 0, 0.05) 0%, transparent 70%);
+            }
+
+            .standby-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                height: auto;
+                min-height: 100dvh;
+                padding: 64px 28px 100px;
+                gap: 48px;
+            }
+
+            .clock-panel {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 107, 43, 0.1);
+                padding-bottom: 48px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .clock-time {
+                font-size: clamp(72px, 22vw, 120px);
+                letter-spacing: -2px;
+            }
+
+            .clock-date {
+                font-size: clamp(16px, 4.5vw, 22px);
+                margin-top: 14px;
+            }
+
+            .info-panel {
+                padding-left: 0;
+                gap: 24px;
+            }
+
+            h1 {
+                font-size: clamp(20px, 7vw, 32px);
+            }
+
+            li a {
+                font-size: 16px;
+                padding: 16px 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>The Endless City</h1>
-    <ul>
-        <li><a
-                href="https://www.figma.com/design/FudiAs1OBDWRlJki8k0n9f/P3--Standby-Mode?node-id=67-30&t=zHhEfNAfFBXUEADP-1">Figma
-                Workspace</a></li>
-        <li><a
-                href="https://www.figma.com/proto/FudiAs1OBDWRlJki8k0n9f/P3--Standby-Mode?node-id=67-30&page-id=61%3A45&starting-point-node-id=61%3A65&show-proto-sidebar=1&t=4CgBEuPqWwDjbDVa-1">Standby
-                Mode Prototype</a></li>ß
+    <div class="standby-layout">
 
-    </ul>
+        <div class="clock-panel">
+            <div class="clock-time" id="clock">
+                <span id="clock-h">--</span><span class="clock-colon">:</span><span id="clock-m">--</span>
+            </div>
+            <div class="clock-date" id="clock-date">Thursday, January 1</div>
+        </div>
+
+        <div class="info-panel">
+            <h1>Standby Mode</h1>
+            <div class="divider"></div>
+            <ul>
+                <li><a
+                        href="https://www.figma.com/design/FudiAs1OBDWRlJki8k0n9f/P3--Standby-Mode?node-id=67-30&t=zHhEfNAfFBXUEADP-1">Figma
+                        Workspace</a></li>
+                <li><a
+                        href="https://www.figma.com/proto/FudiAs1OBDWRlJki8k0n9f/P3--Standby-Mode?node-id=67-30&page-id=61%3A45&starting-point-node-id=61%3A65&show-proto-sidebar=1&t=4CgBEuPqWwDjbDVa-1">Standby
+                        Mode Prototype</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="charging">&#9679; Charging</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours() % 12 || 12).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('clock-h').textContent = h;
+            document.getElementById('clock-m').textContent = m;
+            document.getElementById('clock-date').textContent =
+                `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
 </body>
 
 </html>

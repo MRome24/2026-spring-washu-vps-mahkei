@@ -10,12 +10,16 @@
     <link rel="shortcut icon" href="favicon.ico?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
     <link rel="manifest" href="site.webmanifest?v=2">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <style>
         html,
         body {
             margin: 0;
             padding: 0;
             background-color: rgb(245, 242, 228);
+            font-family: 'Lato', sans-serif;
         }
 
         .container {
@@ -40,7 +44,7 @@
             }
 
             #logo {
-                max-width: 80px;
+                max-width: 110px;
             }
 
             nav {
@@ -61,28 +65,31 @@
 
         .website-navigation {
             background-color: rgb(255, 187, 16);
-            padding: 12px 0;
+            padding: 6px 0;
             margin: 0;
             width: 100%;
             margin-bottom: 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-
         }
 
         nav {
             display: flex;
             gap: 30px;
             margin: 0;
+            align-items: center;
         }
 
         nav a {
             margin: 0;
             color: rgb(119, 8, 8);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
         nav a:hover {
@@ -124,21 +131,29 @@
 
         h2 {
             color: rgba(141, 20, 20, 0.84);
-            font-family: 'Gravitas One', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 2.2rem;
             text-align: center;
         }
 
 
         h3 {
             color: rgb(119, 8, 8);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            font-size: 1.4rem;
             text-align: center;
         }
 
         h5 {
             color: rgb(119, 8, 8);
+            font-family: 'Lato', sans-serif;
         }
 
         p {
+            font-family: 'Lato', sans-serif;
             text-align: center;
         }
 
@@ -154,11 +169,16 @@
             padding: 12px 16px;
             border: 1px solid #ddd;
             text-align: left;
+            font-family: 'Lato', sans-serif;
         }
 
         table th {
             background-color: rgb(255, 187, 16);
-            font-weight: bold;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
         }
 
         table tbody tr:nth-child(even) {
@@ -189,6 +209,8 @@
 
         .dropdown {
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .dropdown-toggle {
@@ -260,6 +282,54 @@
             padding: 30px;
             color: rgb(119, 8, 8);
         }
+
+        .hero {
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            display: block;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 260px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-gallery img {
+                height: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -269,8 +339,6 @@
         <div class="nav-container">
             <img src="Salt+Smoke_logo.png" alt="Salt + Smoke Logo" id="logo">
             <nav>
-                <a href="#where">Locations</a>
-                <a href="#when">Hours</a>
                 <div class="dropdown">
                     <a href="#what" class="dropdown-toggle">Food</a>
                     <div class="dropdown-menu">
@@ -282,89 +350,30 @@
                         <a href="#drinks">Drinks</a>
                     </div>
                 </div>
+                <a href="#when">Hours</a>
+                <a href="#where">Locations</a>
             </nav>
         </div>
     </div>
 
-    <section id="where">
-        <div class="container">
-            <h2>Locations</h2>
-            <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
-            <br>
-            <div class="map-grid">
-                <div class="cell">
-                    <h3 id="delmar-blvd">Delmar Blvd</h3>
-                    <iframe title="Salt + Smoke Delmar Blvd Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99701.97192774549!2d-90.37509384179687!3d38.656085399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df3553887b91e5%3A0x87740badb66d919c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450423655!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="cell">
-                    <h3 id="clark-ave">Clark Ave</h3>
-                    <iframe title="Salt + Smoke Clark Ave Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.43339228399!2d-90.26143454179686!3d38.62341269999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b39bb763996d%3A0xfea2c4bdb41d7532!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450462905!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="cell">
-                    <h3 id="hampton-ave">Hampton Ave</h3>
-                    <iframe title="Salt + Smoke Hampton Ave Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.23588074159!2d-90.19148540000003!3d38.62355469999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b5f0bc60e8e3%3A0xbade655ec91e82c2!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450492928!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="cell">
-                    <h3 id="main-street-st-charles">Main Street – St. Charles</h3>
-                    <iframe title="Salt + Smoke Main Street St. Charles Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99532.26156022937!2d-90.55332444179686!3d38.777849400000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df2fbd9c2e4887%3A0x977e788726a869c1!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450528155!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="cell">
-                    <h3 id="clarkson-clayton">Clarkson / Clayton</h3>
-                    <iframe title="Salt + Smoke Clarkson Clayton Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.932318587101!2d-90.58871119999998!3d38.60442799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8d5d269c3274f%3A0x7dfc9fbb65829e6c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450581311!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-
-                </div>
-                <div class="cell">
-                    <h3 id="rusty-rd">Rusty Rd</h3>
-                    <iframe title="Salt + Smoke Rusty Rd Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.987299484702!2d-90.3395712!3d38.5110038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8c9548bc3a8f7%3A0x8ddc9f221d6c5a07!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450609421!5m2!1sen!2sus"
-                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="when">
-        <div class="container">
-            <h2>Hours</h2>
-            <p><strong>We're open seven days a week! Our hours are the same at each location</strong></p>
-            <br>
-            <table class="hours">
-                <thead>
-                    <tr>
-                        <th class="left" scope="col">Days of the Week</th>
-                        <th class="right" scope="col">Hours of Operation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="left">Sunday–Thursday</td>
-                        <td class="right">11am–9pm</td>
-                    </tr>
-                    <tr>
-                        <td class="left">Friday–Saturday</td>
-                        <td class="right">11am–10pm</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <div class="hero">
+        <img src="images/Group-Salt_Smoke-20260429-3-Large-682x1024.jpeg" alt="Salt + Smoke BBQ spread">
+    </div>
 
     <section id="what">
         <div class="container">
             <h2>Food</h2>
-            <h3 id="salads">Salads</h3>
             <p><strong>Check out our full menu below - from salads to sandwiches, plates to desserts! </strong></p>
             <br>
+            <div class="photo-gallery">
+                <img src="images/slm_361749__20240301_SaltSmoke_0144.webp" alt="Salt + Smoke BLT sandwich">
+                <img src="images/sammie-brisket.jpg" alt="Brisket sandwich with fries">
+                <img src="images/brisket_ss_220-1.jpg" alt="Brisket plate with mac and cheese">
+                <img src="images/1-1.jpg" alt="St. Louis ribs with sides">
+                <img src="images/salt-and-smoke-bbq-st-louis-lg-2.webp" alt="Pulled pork sandwich with pit beans">
+                <img src="images/images.jpeg" alt="Salt + Smoke BBQ selection">
+            </div>
+            <h3 id="salads">Salads</h3>
             <table class="salad-menu">
                 <thead>
                     <tr>
@@ -640,6 +649,79 @@
             </table>
         </div>
     </section>
+
+    <section id="when">
+        <div class="container">
+            <h2>Hours</h2>
+            <p><strong>We're open seven days a week! Our hours are the same at each location</strong></p>
+            <br>
+            <table class="hours">
+                <thead>
+                    <tr>
+                        <th class="left" scope="col">Days of the Week</th>
+                        <th class="right" scope="col">Hours of Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">Sunday–Thursday</td>
+                        <td class="right">11am–9pm</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Friday–Saturday</td>
+                        <td class="right">11am–10pm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="where">
+        <div class="container">
+            <h2>Locations</h2>
+            <p><strong>Come join us at our six locations across the St. Louis region! </strong></p>
+            <br>
+            <div class="map-grid">
+                <div class="cell">
+                    <h3 id="delmar-blvd">Delmar Blvd</h3>
+                    <iframe title="Salt + Smoke Delmar Blvd Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99701.97192774549!2d-90.37509384179687!3d38.656085399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df3553887b91e5%3A0x87740badb66d919c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450423655!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="cell">
+                    <h3 id="clark-ave">Clark Ave</h3>
+                    <iframe title="Salt + Smoke Clark Ave Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.43339228399!2d-90.26143454179686!3d38.62341269999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b39bb763996d%3A0xfea2c4bdb41d7532!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450462905!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="cell">
+                    <h3 id="hampton-ave">Hampton Ave</h3>
+                    <iframe title="Salt + Smoke Hampton Ave Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99747.23588074159!2d-90.19148540000003!3d38.62355469999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b5f0bc60e8e3%3A0xbade655ec91e82c2!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450492928!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="cell">
+                    <h3 id="main-street-st-charles">Main Street – St. Charles</h3>
+                    <iframe title="Salt + Smoke Main Street St. Charles Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99532.26156022937!2d-90.55332444179686!3d38.777849400000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87df2fbd9c2e4887%3A0x977e788726a869c1!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450528155!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="cell">
+                    <h3 id="clarkson-clayton">Clarkson / Clayton</h3>
+                    <iframe title="Salt + Smoke Clarkson Clayton Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.932318587101!2d-90.58871119999998!3d38.60442799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8d5d269c3274f%3A0x7dfc9fbb65829e6c!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450581311!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="cell">
+                    <h3 id="rusty-rd">Rusty Rd</h3>
+                    <iframe title="Salt + Smoke Rusty Rd Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.987299484702!2d-90.3395712!3d38.5110038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8c9548bc3a8f7%3A0x8ddc9f221d6c5a07!2sSalt%20%2B%20Smoke!5e0!3m2!1sen!2sus!4v1769450609421!5m2!1sen!2sus"
+                        width="320" height="200" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>Salt + Smoke</p>
     </footer>

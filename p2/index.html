@@ -4,25 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P1</title>
+    <title>The Endless City</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --nyc: #2B4590;
+            --mex: #C0431F;
+            --joh: #b81075;
+            --sha: #7c3aed;
+            --lon: #5a8000;
+            --ber: #166534;
+            --gray-header: #7a7a7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f57c2e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: #efefef;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 420px;
+            max-width: 95vw;
+        }
+
+        .card-header {
+            background: var(--gray-header);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .card-subtitle {
+            padding: 14px 24px;
+            font-size: 13px;
+            color: #555;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            font-style: italic;
+        }
+
+        ul {
+            list-style: none;
+            padding: 16px 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li a {
+            display: block;
+            padding: 14px 24px;
+            color: #222;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.15s, padding-left 0.15s;
+        }
+
+        li a:hover {
+            background: white;
+            padding-left: 32px;
+        }
+
+        li:nth-child(1) a {
+            border-left: 4px solid var(--nyc);
+        }
+
+        li:nth-child(2) a {
+            border-left: 4px solid var(--mex);
+        }
+
+        li:nth-child(3) a {
+            border-left: 4px solid var(--joh);
+        }
+
+        li:nth-child(4) a {
+            border-left: 4px solid var(--sha);
+        }
+
+        li:nth-child(5) a {
+            border-left: 4px solid var(--ber);
+        }
+
+        li:nth-child(5) a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #111;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>The Endless City</h1>
-    <ul>
-        <li><a href="https://www.figma.com/deck/2hvUY2up56c3crIhegPVva">Possible Book Choices</a></li>
-        <li><a href="https://www.figma.com/deck/GBcUFpXux9Aip77P5PiSLE/...">Mood Board</a></li>
-        <li><a href="https://www.figma.com/design/czCgCX3Xd0nwBEBkAVIeRQ/...">Planning Process</a></li>
-        <li><a href="https://www.figma.com/proto/czCgCX3Xd0nwBEBkAVIeRQ/...">Figma Prototype</a></li>
-        <li><a href="EndlessCity.html">Final Project/Design</a></li>
-
-    </ul>
-
-
-
-
-
-
+    <div class="card">
+        <div class="card-header">
+            <h1>The Endless City</h1>
+        </div>
+        <p class="card-subtitle">Book to Website - Project 2</p>
+        <ul>
+            <li><a href="https://www.figma.com/deck/2hvUY2up56c3crIhegPVva">Possible Book Choices</a></li>
+            <li><a href="https://www.figma.com/deck/GBcUFpXux9Aip77P5PiSLE/...">Mood Board</a></li>
+            <li><a href="https://www.figma.com/design/czCgCX3Xd0nwBEBkAVIeRQ/...">Planning Process</a></li>
+            <li><a href="https://www.figma.com/proto/czCgCX3Xd0nwBEBkAVIeRQ/...">Figma Prototype</a></li>
+            <li><a href="EndlessCity.html">Final Project / Design</a></li>
+        </ul>
+    </div>
 </body>
 
 </html>

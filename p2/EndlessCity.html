@@ -50,25 +50,12 @@
             justify-content: center;
             min-height: 100vh;
             background: #efefef;
-            padding: 40px 20px;
-        }
-
-        .start-label {
-            align-self: flex-start;
-            margin-left: calc(50% - 390px);
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 12px;
-            font-family: 'DM Serif Display', serif;
         }
 
         .start-card {
-            width: 780px;
-            max-width: 100%;
+            width: 100%;
             background: white;
-            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
         .start-header {
@@ -178,25 +165,15 @@
             background: #e8e8e8;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        .map-label {
-            align-self: flex-start;
-            margin-left: calc(50% - 615px);
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 12px;
         }
 
         .map-container {
-            width: 1230px;
-            max-width: 100%;
+            width: 100%;
             background: white;
-            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .map-header {
@@ -219,7 +196,8 @@
         .map-body {
             position: relative;
             background: #c8c8c8;
-            height: 560px;
+            flex: 1;
+            min-height: 0;
         }
 
         .world-map-svg {
@@ -230,13 +208,6 @@
 
         .map-city {
             cursor: pointer;
-            transform-box: fill-box;
-            transform-origin: center;
-            transition: transform 0.2s;
-        }
-
-        .map-city:hover {
-            transform: scale(1.2);
         }
 
         .map-spacer {
@@ -305,24 +276,18 @@
             background: #e8e8e8;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
         }
 
         .city-label {
-            align-self: flex-start;
-            margin-left: calc(50% - 595px);
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 12px;
+            display: none;
         }
 
         .city-container {
-            width: 1190px;
-            max-width: 100%;
-            border-radius: 6px;
+            width: 100%;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .city-theme-nyc {
@@ -742,25 +707,19 @@
             background: #888;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
         }
 
         .index-label {
-            align-self: flex-start;
-            margin-left: calc(50% - 540px);
-            color: #ccc;
-            font-size: 14px;
-            margin-bottom: 12px;
+            display: none;
         }
 
         .index-container {
-            width: 1080px;
-            max-width: 100%;
+            width: 100%;
             background: var(--gray-bg);
-            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .index-header {
